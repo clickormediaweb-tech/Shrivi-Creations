@@ -552,7 +552,7 @@
     <script>
         const DEFAULT_PRODUCTS = [
             { id: 'p1', type: 'image', name: 'The Bow Crochet Top', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', tag: 'Handcrafted crochet &bull; Burgundy & Ivory', category: 'Tops', desc: 'Handcrafted crochet top with delicate burgundy bow details and airy stitch work.' },
-            { id: 'p2', type: 'image', name: 'The Mosaic Crochet Cardigan', price: 3999, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Handcrafted crochet &bull; Multicolour', category: 'Cardigans', desc: 'Luxurious multi-color mosaic cardigan crafted with premium chunky woolen yarn.' },
+            { id: 'p2', type: 'image', name: 'The Mosaic Crochet Cardigan', price: 3999, img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Handcrafted crochet &bull; Multicolour', category: 'Cardigans', desc: 'Luxurious multi-color mosaic cardigan crafted with premium chunky woolen yarn.' },
             { id: 'p3', type: 'image', name: 'The Sage Cloud Bag', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Handcrafted crochet &bull; Sage green', category: 'Bags', desc: 'Textured sage green cloud clutch with custom metal branding and soft inner lining.' },
             { id: 'p4', type: 'image', name: 'The Olive Tank Top', price: 1999, img: 'assets/ChatGPT Image Sep 19, 2026, 12_17_31 PM.png', tag: 'Handcrafted crochet &bull; Cream & olive', category: 'Tops', desc: 'Vintage ribbed crochet tank top featuring elegant olive green striped borders.' },
             { id: 'p5', type: 'video', name: 'The Sunny Tulip Sweater', price: 4500, video: 'assets/v1.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', category: 'Cardigans', desc: 'Handcrafted with textured bow patterns and a soft, oversized silhouette perfect for layering.' },
@@ -571,8 +571,8 @@
         let PRODUCTS = loadJSON('shrivi_products', DEFAULT_PRODUCTS);
 
         let cart = loadJSON('shrivi_cart', [
-            { id: 'p2', name: 'Mustard Bloom Crochet Cardigan', price: 3499, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Mustard yellow · Oversized fit', size: 'M', qty: 1 },
-            { id: 'p3', name: 'Olive Everyday Crochet Bag', price: 2499, img: 'ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Olive green · One Size', size: 'One Size', qty: 1 }
+            { id: 'p2', name: 'Mustard Bloom Crochet Cardigan', price: 3499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Mustard yellow · Oversized fit', size: 'M', qty: 1 },
+            { id: 'p3', name: 'Olive Everyday Crochet Bag', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Olive green · One Size', size: 'One Size', qty: 1 }
         ]);
         let wishlist = loadJSON('shrivi_wishlist', ['p1', 'p2']);
         let reviewsData = loadJSON('shrivi_reviews', {
