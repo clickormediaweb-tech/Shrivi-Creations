@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrivi Creations - Interactive Pages</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FBF9F5; color: #641f2a; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-[#FBF9F5] text-[#641f2a] antialiased">
+<div id="subpage-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden overflow-y-auto">
+    <div class="min-h-screen bg-[#f9f6f0] text-[#641f2a] relative">
+        <div id="subpage-content">
+            <!-- Dynamic pages yahan load honge -->
+        </div>
+    </div>
+</div>
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-[#f9f6f0]/95 backdrop-blur-md border-b border-[#e8dcce]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('home')">
+                <span class="font-serif text-2xl font-bold tracking-widest uppercase">SHRIVI</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-bold tracking-[0.2em] uppercase">
+                <a href="#" onclick="switchPage('home')" class="hover:text-[#641f2a]/60">Home</a>
+                <a href="#" onclick="switchPage('gift')" class="hover:text-[#641f2a]/60">Gift Cards</a>
+                <a href="#" onclick="switchPage('track')" class="hover:text-[#641f2a]/60">Track Order</a>
+                <a href="#" onclick="switchPage('work')" class="hover:text-[#641f2a]/60">Work with Us</a>
+            </nav>
+            <div class="flex items-center space-x-6 text-base">
+                <button onclick="switchPage('wishlist')" class="relative cursor-pointer"><i class="fa-regular fa-heart"></i><span id="w-badge" class="absolute -top-2 -right-2 bg-[#641f2a] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></button>
+                <button onclick="switchPage('cart')" class="relative cursor-pointer"><i class="fa-solid fa-bag-shopping"></i><span id="c-badge" class="absolute -top-2 -right-2 bg-[#641f2a] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span></button>
+<button onclick="openPage('login')" class="cursor-pointer">
+    <i class="fa-regular fa-user"></i>
+</button>            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER FOR DYNAMIC VIEWS -->
+    <main id="app-container" class="min-h-[80vh] py-10">
+        <!-- Default Demo Home View with Add to Bag & Wishlist triggers -->
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="font-serif text-4xl font-bold mb-6">SHRIVI CREATIONS MASTER PAGES</h1>
+            <p class="text-sm text-gray-700 mb-8">Click any section below or use navigation to test fully working states.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="switchPage('gift')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">Gift Cards</button>
+                <button onclick="switchPage('track')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">Track Order</button>
+                <button onclick="switchPage('work')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">Work with Us</button>
+                <button onclick="switchPage('account')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">My Account</button>
+                <button onclick="switchPage('login')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">Login</button>
+                <button onclick="switchPage('create-account')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider">Create Account</button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl border border-[#641f2a]/10 shadow-sm text-left">
+                    <h3 class="font-serif font-bold text-lg mb-2">The Rose Patchwork Cardigan</h3>
+                    <p class="text-xs text-gray-600 mb-4">Rs. 2,499</p>
+                    <div class="flex gap-2">
+                        <button onclick="addToCart('The Rose Patchwork Cardigan', 2499)" class="px-4 py-2 bg-[#641f2a] text-white text-xs font-bold uppercase rounded-full">Add to Bag</button>
+                        <button onclick="addToWishlist('The Rose Patchwork Cardigan')" class="px-4 py-2 border border-[#641f2a] text-[#641f2a] text-xs font-bold uppercase rounded-full">Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background-color: #641f2a; color: #ffffff; padding: 60px 20px 30px 20px; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 500; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase;">ABOUT SHRIVI CREATIONS</h3>
+                <p style="font-size: 14px; line-height: 1.8; color: #f2f2f2; font-weight: 300; max-width: 750px; margin: 0 auto;">
+                    Shrivi Creations is a crochet fashion label built around the beauty of handmade craft and modern everyday style.<br>
+                    We create thoughtfully designed tops, cardigans and bags that bring texture, individuality and a sense of warmth to the way you dress.
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 40px; margin-bottom: 30px;">
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">SHRIVI CREATIONS</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                        <li><a href="#" onclick="switchPage('contact'); return false;" style="color: #e6e6e6; text-decoration: none;">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">ACCOUNT</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                        <li><a href="#" onclick="openPage('contact'); return false;">Contact Us</a></li>
+<li><a href="#" onclick="openPage('account'); return false;">My Account</a></li>
+<li><a href="#" onclick="openPage('track'); return false;">Track your Order</a></li>
+<li><a href="#" onclick="openPage('work'); return false;">Work with Us</a></li>
+<li><a href="#" onclick="openPage('gift'); return false;">Gift Cards</a></li></ul>
+                </div>
+            </div>
+            <div style="text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; font-weight: 300;">
+                Copyrights © 2026 Shrivi Creations<br> • Crafted by ClickOrMedia
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC & TEMPLATES -->
+    <script>
+        let cart = [];
+        let wishlist = [];
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if(!container) return;
+            const toast = document.createElement('div');
+            toast.className = "bg-[#641f2a] text-white px-6 py-3 rounded-2xl shadow-2xl text-xs font-semibold tracking-wide uppercase flex items-center space-x-3 transition-all duration-300";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-green-400"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function addToCart(name, price, img = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600') {
+            cart.push({name, price, img});
+            const badge = document.getElementById('c-badge');
+            if(badge) badge.innerText = cart.length;
+            showToast(name + ' added to shopping bag');
+        }
+
+        function addToWishlist(name) {
+            wishlist.push({name});
+            const badge = document.getElementById('w-badge');
+            if(badge) badge.innerText = wishlist.length;
+            showToast(name + ' added to wishlist');
+        }
+
+        // 3D Luxury Quick View Function for Products
+        function openQuickView(name, price, img, desc) {
+            const modal = document.getElementById('quick-view-modal');
+            if(!modal) {
+                addToCart(name, price, img);
+                return;
+            }
+            document.getElementById('qv-img').src = img;
+            document.getElementById('qv-title').innerText = name;
+            document.getElementById('qv-price').innerText = '₹' + price.toLocaleString();
+            document.getElementById('qv-desc').innerText = desc;
+            document.getElementById('qv-add-btn').setAttribute('onclick', `addToCart('${name}', ${price}, '${img}'); closeQuickView();`);
+            modal.classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            if(modal) modal.classList.add('hidden');
+        }
+
+        function switchPage(page) {
+            const container = document.getElementById('app-container');
+            if(!container) return;
+            let html = '';
+
+            if(page === 'home') {
+                html = `
+                    <div class="max-w-7xl mx-auto px-4 text-center">
+                        <h1 class="font-serif text-4xl font-bold mb-6">SHRIVI CREATIONS MASTER PAGES</h1>
+                        <p class="text-sm text-gray-700 mb-8">Click any section below or use navigation to test fully working states.</p>
+                        <div class="flex flex-wrap justify-center gap-4 mb-12">
+                            <button onclick="switchPage('gift')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">Gift Cards</button>
+                            <button onclick="switchPage('track')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">Track Order</button>
+                            <button onclick="switchPage('work')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">Work with Us</button>
+                            <button onclick="switchPage('account')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">My Account</button>
+                            <button onclick="switchPage('login')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">Login</button>
+                            <button onclick="switchPage('create-account')" class="px-6 py-3 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer">Create Account</button>
+                        </div>
+
+                        <!-- Clickable 3D Luxury Product Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                            <div onclick="openQuickView('The Rose Patchwork Cardigan', 2499, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600', 'Luxurious handcrafted patchwork cardigan with premium woolen yarn and exquisite detailing.')" class="bg-white p-6 rounded-3xl border border-[#641f2a]/10 shadow-sm text-left cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                                <div class="h-48 rounded-2xl overflow-hidden mb-4 bg-stone-100">
+                                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="font-serif font-bold text-lg mb-1">The Rose Patchwork Cardigan</h3>
+                                <p class="text-xs text-gray-600 mb-4">Handcrafted crochet • Multi</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-[#641f2a]">Rs. 2,499</span>
+                                    <button onclick="event.stopPropagation(); addToCart('The Rose Patchwork Cardigan', 2499, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600')" class="px-4 py-2 bg-[#641f2a] text-white text-xs font-bold uppercase rounded-full cursor-pointer">Add to Bag</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'gift') {
+                html = `
+                    <div class="max-w-6xl mx-auto px-4 py-8 font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / <span class="text-[#641f2a]">Gift Cards</span></p>
+                        <div class="text-center max-w-2xl mx-auto mb-16">
+                            <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-4 text-[#641f2a]">THE SHRIVI GIFT CARD</h1>
+                            <p class="text-sm sm:text-base text-gray-700 font-semibold leading-relaxed">A Shrivi Creations Gift Card lets someone special discover handmade crochet pieces made to be worn, loved and kept.</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 bg-white/50 p-8 sm:p-12 rounded-3xl border border-[#641f2a]/10 shadow-sm">
+                            <div class="space-y-6 text-left">
+                                <span class="font-serif italic text-3xl text-[#641f2a]">A gift made to be loved</span>
+                                <h2 class="font-serif text-2xl sm:text-3xl font-bold uppercase text-[#641f2a] leading-snug">Give them the freedom to choose something truly their own.</h2>
+                                <button onclick="switchPage('gift-builder')" class="px-8 py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer inline-block">SHOP GIFT CARDS &rarr;</button>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800" alt="Gift Card" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'gift-builder') {
+                html = `
+                    <div class="max-w-6xl mx-auto px-4 py-8 font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / Gift Cards / <span class="text-[#641f2a]">Builder</span></p>
+                        <div class="mb-10 text-center sm:text-left">
+                            <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">GIVE THE GIFT OF CHOICE</h1>
+                            <p class="text-sm text-gray-700 font-semibold">Something thoughtful, made personal</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                            <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#641f2a]/10 space-y-6 text-left">
+                                <div>
+                                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-3 tracking-widest">Choose a Gift Card</label>
+                                    <div class="grid grid-cols-4 gap-3 mb-4">
+                                        <button type="button" class="py-3 border border-[#641f2a] rounded-xl text-xs font-bold bg-[#641f2a] text-white">₹1,000</button>
+                                        <button type="button" class="py-3 border border-[#641f2a]/30 rounded-xl text-xs font-bold">₹2,000</button>
+                                        <button type="button" class="py-3 border border-[#641f2a]/30 rounded-xl text-xs font-bold">₹3,000</button>
+                                        <button type="button" class="py-3 border border-[#641f2a]/30 rounded-xl text-xs font-bold">₹4,000</button>
+                                    </div>
+                                    <input type="number" placeholder="Custom Amount (₹)" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="bg-[#f3ede2] p-8 sm:p-10 rounded-3xl border border-[#e8dcce] sticky top-28 space-y-6 shadow-sm text-left">
+                                    <h3 class="font-serif font-bold text-lg text-[#641f2a] uppercase tracking-wide">YOUR GIFT CARD</h3>
+                                    <button onclick="showToast('Gift Card Acquired Successfully!')" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">ACQUIRE GIFT CARD</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'track') {
+                html = `
+                    <div class="max-w-xl mx-auto px-4 py-12 text-center font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / <span class="text-[#641f2a]">Track your Order</span></p>
+                        <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-3 text-[#641f2a]">TRACK YOUR ORDER</h1>
+                        <p class="text-sm sm:text-base text-gray-700 font-semibold mb-10 leading-relaxed">Follow your Shrivi piece from our hands to your doorstep.</p>
+                        <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#641f2a]/10 space-y-6 text-left">
+                            <input type="text" placeholder="ENTER YOUR ORDER NUMBER" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-5 py-4 text-xs font-semibold focus:outline-none uppercase">
+                            <input type="email" placeholder="ENTER YOUR EMAIL ADDRESS" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-5 py-4 text-xs font-semibold focus:outline-none uppercase">
+                            <button onclick="showToast('Tracking Status: Out for Delivery')" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-4">TRACK ORDER</button>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'work' || page === 'contact') {
+                html = `
+                    <div class="max-w-3xl mx-auto px-4 py-12 font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold text-center">Home / <span class="text-[#641f2a]">Work with Us</span></p>
+                        <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-4 text-center text-[#641f2a]">MAKE WITH SHRIVI</h1>
+                        <p class="text-sm sm:text-base text-gray-700 font-semibold text-center mb-12 max-w-xl mx-auto leading-relaxed">We're looking for skilled crochet makers who love turning yarn patterns and ideas into beautiful handmade pieces.</p>
+                        <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#641f2a]/10 space-y-8 text-left text-xs sm:text-sm text-gray-700 font-semibold leading-relaxed">
+                            <form onsubmit="showToast('Application Submitted Successfully!'); event.preventDefault();" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <input type="text" required placeholder="FULL NAME" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold uppercase">
+                                    <input type="email" required placeholder="EMAIL ADDRESS" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold uppercase">
+                                </div>
+                                <button type="submit" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-4">SUBMIT APPLICATION</button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'login') {
+                html = `
+                    <div class="max-w-md mx-auto px-4 py-16 text-center font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / <span class="text-[#641f2a]">Login</span></p>
+                        <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-3 text-[#641f2a]">LOGIN</h1>
+                        <p class="text-sm sm:text-base text-gray-700 font-semibold mb-10 leading-relaxed">Sign in to your Shrivi Creations account to view your orders, manage your details.</p>
+                        <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-[#641f2a]/10 text-left space-y-6">
+                            <h3 class="font-serif text-lg font-bold text-center uppercase tracking-wide text-[#641f2a]">WELCOME BACK ♥</h3>
+                            <form onsubmit="showToast('Logged in successfully!'); event.preventDefault();" class="space-y-4">
+                                <input type="email" required placeholder="YOUR EMAIL" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-5 py-4 text-xs font-semibold tracking-widest text-[#641f2a] uppercase">
+                                <input type="password" required placeholder="PASSWORD" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-5 py-4 text-xs font-semibold tracking-widest text-[#641f2a]">
+                                <button type="submit" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-2">LOG IN</button>
+                            </form>
+                            <div class="text-center pt-2">
+                                <a href="#" onclick="switchPage('create-account'); return false;" class="font-serif text-xs font-bold uppercase tracking-wider text-[#641f2a] underline">NEW TO SHRIVI? CREATE YOUR ACCOUNT</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'create-account') {
+                html = `
+                    <div class="max-w-xl mx-auto px-4 py-16 text-center font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / <span class="text-[#641f2a]">Create Account</span></p>
+                        <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-3 text-[#641f2a]">CREATE ACCOUNT</h1>
+                        <p class="text-sm sm:text-base text-gray-700 font-semibold mb-10 leading-relaxed">Create an account to make checkout easier, view your orders.</p>
+                        <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-[#641f2a]/10 text-left space-y-6">
+                            <h3 class="font-serif text-lg font-bold text-center uppercase tracking-wide text-[#641f2a]">START YOUR SHRIVI JOURNEY ♥</h3>
+                            <form onsubmit="showToast('Account Created Successfully!'); event.preventDefault();" class="space-y-4">
+                                <input type="text" required placeholder="FIRST NAME" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold uppercase">
+                                <input type="email" required placeholder="EMAIL ADDRESS" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold uppercase">
+                                <input type="password" required placeholder="PASSWORD" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs font-semibold">
+                                <button type="submit" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-4">CREATE ACCOUNT</button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+            } else if(page === 'account') {
+                html = `
+                    <div class="max-w-4xl mx-auto px-4 py-12 text-center font-sans text-[#641f2a]">
+                        <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold">Home / <span class="text-[#641f2a]">My Account</span></p>
+                        <h1 class="font-serif text-3xl sm:text-5xl font-bold text-[#641f2a] uppercase tracking-wider mb-2">WELCOME SHIVI</h1>
+                        <p class="text-sm sm:text-base text-gray-700 font-semibold mb-8">Your Shrivi space, all in one place.</p>
+                        <div class="flex justify-center gap-8 mb-10 text-xs font-bold uppercase tracking-[0.2em] border-b border-[#641f2a]/10 pb-4 font-serif">
+                            <span class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer">ORDERS</span>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#641f2a]/10 text-left flex flex-col sm:flex-row items-center justify-between gap-6 max-w-2xl mx-auto">
+                            <div class="space-y-1.5">
+                                <h3 class="font-serif font-bold text-[#641f2a] text-lg">ORDER #SC1024</h3>
+                                <p class="text-xs text-gray-600 font-semibold">Placed on 18 September 2026</p>
+                                <p class="font-bold text-sm text-[#641f2a] pt-1">The Rose Patchwork Crochet Cardigan</p>
+                                <p class="text-xs text-gray-600 font-semibold">Quantity : 1</p>
+                                <p class="font-bold text-sm text-[#641f2a]">Rs. 2,499</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+            window.scrollTo(0, 0);
+        }
+   
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrivi Creations | Luxury Handmade Crochet Fashion & Bags</title>
+    <meta name="description" content="Shrivi Creations is a crochet fashion label built around the beauty of handmade craft and modern everyday style.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        shrivi: {
+                            DEFAULT: '#641f2a',
+                            dark: '#4a151f',
+                            light: '#7e2837',
+                            cream: '#f9f6f0',
+                            beige: '#f3ede2',
+                            sand: '#e8dcce'
+                        },
+                        brand: {
+                            DEFAULT: '#641f2a',
+                            dark: '#4a1720',
+                            light: '#822a38',
+                            bg: '#fefcf8',
+                            card: '#f4ede2'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f9f6f0; color: #641f2a; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f3ede2; }
+        ::-webkit-scrollbar-thumb { background: #641f2a; border-radius: 3px; }
+        .qv-3d-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f7f1e6 60%, #efe3ce 100%);
+            box-shadow: 0 30px 60px -20px rgba(100, 31, 42, 0.45), 0 10px 25px -8px rgba(100, 31, 42, 0.25), inset 0 0 0 1px rgba(255,255,255,0.6);
+        }
+        .cinematic-3d-blog {
+            background: linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(247,241,230,0.98) 100%);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 80px -20px rgba(100, 31, 42, 0.5), 0 15px 30px -10px rgba(100, 31, 42, 0.3), inset 0 0 0 1px rgba(255,255,255,0.8);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .product-card-3d { transition: transform .45s cubic-bezier(.165,.84,.44,1), box-shadow .45s; }
+        .product-card-3d:hover {
+            transform: perspective(1200px) rotateX(1.5deg) rotateY(-1.5deg) translateY(-4px);
+            box-shadow: 0 25px 40px -18px rgba(100,31,42,0.35);
+        }
+        .cursor-pointer-card { cursor: pointer; }
+    </style>
+</head>
+<body class="bg-[#f9f6f0] text-[#641f2a] antialiased selection:bg-[#641f2a] selection:text-[#f9f6f0]">
+
+    <!-- DYNAMIC EXACT SUB-PAGES MODAL LAYER -->
+    <div id="subpage-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden overflow-y-auto">
+        <div class="min-h-screen bg-[#f9f6f0] text-[#641f2a] relative">
+            <div id="subpage-content"></div>
+        </div>
+    </div>
+
+    <!-- BLOG READER MODAL -->
+    <div id="blog-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-lg hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="cinematic-3d-blog rounded-3xl max-w-5xl w-full p-6 sm:p-10 relative my-auto text-left max-h-[90vh] flex flex-col">
+            <button onclick="closeBlogModal()" class="absolute top-5 right-5 z-30 bg-[#641f2a] text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-[#4a1720] cursor-pointer shadow-lg transition-transform hover:scale-105"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div class="overflow-y-auto pr-2 flex-1 space-y-6">
+                <button onclick="closeBlogModal()" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#641f2a] bg-[#641f2a]/10 hover:bg-[#641f2a] hover:text-white px-4 py-2 rounded-full transition-all cursor-pointer">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Journal
+                </button>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div>
+                            <span id="blog-modal-category" class="text-[11px] uppercase tracking-widest text-[#641f2a]/70 bg-[#641f2a]/10 px-3 py-1 rounded-full font-bold">The Shrivi Journal</span>
+                            <h2 id="blog-modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-[#641f2a] mt-3 leading-snug"></h2>
+                            <p id="blog-modal-date" class="text-xs text-[#641f2a]/60 mt-1 font-semibold"></p>
+                        </div>
+                        <div id="blog-modal-body" class="text-xs sm:text-sm text-[#2c1519] font-medium leading-relaxed space-y-3 pt-2 border-t border-[#641f2a]/15"></div>
+                        <div class="pt-4 border-t border-[#641f2a]/15">
+                            <button onclick="closeBlogModal()" class="px-5 py-2.5 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#4a1720] transition-all cursor-pointer inline-flex items-center gap-2 shadow-md">
+                                <i class="fa-solid fa-arrow-left"></i> Back to Journal
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 sticky top-0">
+                        <div class="w-full rounded-2xl overflow-hidden shadow-xl bg-[#f4ede2] border border-[#641f2a]/10">
+                            <img id="blog-modal-img" src="" alt="Blog Cover" class="w-full h-auto object-cover object-center max-h-[70vh]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT QUICK VIEW MODAL POPUP -->
+    <div id="quick-view-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="qv-3d-card rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl relative grid grid-cols-1 md:grid-cols-2 max-h-[90vh]">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 bg-[#641f2a] text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-[#4a1720] cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="aspect-[3/4] bg-[#f4ede2] relative overflow-hidden h-full min-h-[400px]">
+                <img id="qv-img" src="" alt="Product" class="w-full h-full object-cover">
+                <span class="absolute top-4 left-4 text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full bg-white text-[#641f2a]">Handmade Luxury</span>
+            </div>
+            <div class="p-8 flex flex-col justify-between text-left overflow-y-auto max-h-[85vh]">
+                <div>
+                    <div class="flex gap-4 border-b border-[#641f2a]/10 pb-3 mb-4 text-xs font-bold uppercase tracking-wider">
+                        <button onclick="switchQvTab('details')" id="qv-tab-details" class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer">Details</button>
+                        <button onclick="switchQvTab('sizechart')" id="qv-tab-sizechart" class="text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer">Size Chart</button>
+                        <button onclick="switchQvTab('reviews')" id="qv-tab-reviews" class="text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer">Reviews (<span id="qv-review-count">0</span>)</button>
+                    </div>
+                    <div id="qv-pane-details">
+                        <span id="qv-category" class="text-xs uppercase tracking-widest text-[#641f2a]/60 bg-[#641f2a]/10 px-3 py-1 rounded-full">Crochet</span>
+                        <h3 id="qv-title" class="font-serif text-2xl font-bold text-[#641f2a] mt-3"></h3>
+                        <p id="qv-price" class="text-xl font-bold text-[#641f2a] mt-1"></p>
+                        <p id="qv-desc" class="text-xs text-[#641f2a]/70 mt-3 leading-relaxed"></p>
+                        <div class="mt-5">
+                            <label class="block text-xs uppercase font-bold text-[#641f2a] mb-2">Select Size</label>
+                            <div class="flex gap-3">
+                                <button class="w-10 h-10 rounded-xl border border-[#641f2a]/30 text-[#641f2a] text-xs font-bold hover:bg-[#641f2a] hover:text-white transition-colors size-btn cursor-pointer" onclick="selectSize(this)">S</button>
+                                <button class="w-10 h-10 rounded-xl border border-[#641f2a] text-[#641f2a] bg-[#641f2a]/10 text-xs font-bold size-btn cursor-pointer" onclick="selectSize(this)">M</button>
+                                <button class="w-10 h-10 rounded-xl border border-[#641f2a]/30 text-[#641f2a] text-xs font-bold hover:bg-[#641f2a] hover:text-white transition-colors size-btn cursor-pointer" onclick="selectSize(this)">L</button>
+                                <button class="w-10 h-10 rounded-xl border border-[#641f2a]/30 text-[#641f2a] text-xs font-bold hover:bg-[#641f2a] hover:text-white transition-colors size-btn cursor-pointer" onclick="selectSize(this)">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="qv-pane-sizechart" class="hidden space-y-3">
+                        <h4 class="font-serif font-bold text-sm uppercase text-[#641f2a]">Standard Measurements (Inches)</h4>
+                        <table class="w-full text-xs text-left border border-[#641f2a]/20 rounded-xl overflow-hidden">
+                            <thead class="bg-[#641f2a] text-white">
+                                <tr><th class="p-2">Size</th><th class="p-2">Bust</th><th class="p-2">Waist</th><th class="p-2">Length</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-[#641f2a]/10">
+                                <tr><td class="p-2 font-bold">S</td><td class="p-2">32-34"</td><td class="p-2">26-28"</td><td class="p-2">20"</td></tr>
+                                <tr><td class="p-2 font-bold">M</td><td class="p-2">35-37"</td><td class="p-2">29-31"</td><td class="p-2">21"</td></tr>
+                                <tr><td class="p-2 font-bold">L</td><td class="p-2">38-40"</td><td class="p-2">32-34"</td><td class="p-2">22"</td></tr>
+                                <tr><td class="p-2 font-bold">XL</td><td class="p-2">41-43"</td><td class="p-2">35-37"</td><td class="p-2">23"</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="qv-pane-reviews" class="hidden space-y-4">
+                        <div id="qv-reviews-list" class="space-y-3 max-h-40 overflow-y-auto pr-2"></div>
+                        <form onsubmit="handleReviewSubmit(event)" class="space-y-2 pt-2 border-t border-[#641f2a]/10">
+                            <p class="text-xs font-bold uppercase text-[#641f2a]">Leave a Review</p>
+                            <input id="rev-name" type="text" required placeholder="Your Name" class="w-full bg-white border border-[#641f2a]/20 rounded-xl px-3 py-2 text-xs focus:outline-none">
+                            <select id="rev-rating" class="w-full bg-white border border-[#641f2a]/20 rounded-xl px-3 py-2 text-xs focus:outline-none">
+                                <option value="5">★★★★★ (5/5)</option>
+                                <option value="4">★★★★☆ (4/5)</option>
+                                <option value="3">★★★☆☆ (3/5)</option>
+                            </select>
+                            <textarea id="rev-comment" required rows="2" placeholder="Write your review..." class="w-full bg-white border border-[#641f2a]/20 rounded-xl px-3 py-2 text-xs focus:outline-none resize-none"></textarea>
+                            <button type="submit" class="w-full py-2 bg-[#641f2a] text-white rounded-xl text-[10px] uppercase font-bold tracking-wider hover:bg-[#4a1720]">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="mt-6 flex gap-3">
+                    <button id="qv-add-btn" class="flex-1 py-3.5 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        Add to Shopping Bag
+                    </button>
+                    <button onclick="buyNowCurrent()" class="flex-1 py-3.5 bg-stone-800 text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-stone-900 transition-colors shadow-lg cursor-pointer">
+                        Buy Now
+                    </button>
+                    <button id="qv-wishlist-btn" onclick="toggleWishlistCurrent()" class="w-12 h-12 rounded-full border border-[#641f2a] flex items-center justify-center text-[#641f2a] hover:bg-[#641f2a] hover:text-white transition-colors cursor-pointer flex-shrink-0" title="Wishlist">
+                        <i class="fa-regular fa-heart text-base"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-[#641f2a] text-white flex items-center justify-between">
+                    <h3 class="font-serif text-xl tracking-wider uppercase">Shopping Bag (<span id="cart-item-count">0</span>)</h3>
+                    <button onclick="toggleCart()" class="text-white/80 hover:text-white text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#641f2a]/10 text-left">
+                    <p class="text-[#641f2a]/60 text-center py-12">Your shopping bag is currently empty.</p>
+                </div>
+                <div class="p-6 border-t border-[#641f2a]/10 bg-[#f9f6f0] space-y-4">
+                    <div class="flex justify-between text-base font-bold text-[#641f2a]">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₹ 0</span>
+                    </div>
+                    <button onclick="openPage('cart'); toggleCart();" class="w-full py-3 bg-stone-200 text-[#641f2a] rounded-full uppercase tracking-widest text-xs font-bold hover:bg-stone-300 transition-colors cursor-pointer mb-2">
+                        View Full Cart Page
+                    </button>
+                    <button onclick="proceedToCheckout()" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        Proceed to Secure Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WISHLIST SIDEBAR DRAWER -->
+    <div id="wishlist-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleWishlist()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-[#641f2a] text-white flex items-center justify-between">
+                    <h3 class="font-serif text-xl tracking-wider uppercase">My Wishlist (<span id="wishlist-item-count">0</span>)</h3>
+                    <button onclick="toggleWishlist()" class="text-white/80 hover:text-white text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="wishlist-items-container" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#641f2a]/10 text-left">
+                    <p class="text-[#641f2a]/60 text-center py-12">Your wishlist is currently empty.</p>
+                </div>
+                <div class="p-6 border-t border-[#641f2a]/10 bg-[#f9f6f0]">
+                    <button onclick="openPage('wishlist'); toggleWishlist();" class="w-full py-3 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors cursor-pointer">
+                        View Full Wishlist Page
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto text-left">
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 text-[#641f2a] text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-serif text-2xl font-bold text-[#641f2a] mb-1 uppercase tracking-wider">Secure Checkout</h3>
+            <form id="checkout-form" onsubmit="handleCheckoutDetails(event)" class="space-y-4 mt-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Full Name</label>
+                    <input id="chk-name" type="text" required class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none" placeholder="Pranchal Rajpal">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Email</label>
+                        <input id="chk-email" type="email" required class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Phone Number</label>
+                        <input id="chk-phone" type="tel" required class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none" placeholder="+91 98765 43210">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Shipping Address</label>
+                    <textarea id="chk-address" required rows="2" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none" placeholder="House no, Street, City, Pincode"></textarea>
+                </div>
+                
+                <!-- Coupon Code Integration -->
+                <div class="pt-2 border-t border-[#641f2a]/10">
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Coupon Code</label>
+                    <div class="flex gap-2">
+                        <input id="checkout-coupon-input" type="text" placeholder="e.g. SHRIVI10" class="flex-1 bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-2.5 text-xs uppercase text-[#641f2a] focus:outline-none">
+                        <button type="button" onclick="applyCouponCode()" class="px-5 py-2.5 bg-[#641f2a]/10 hover:bg-[#641f2a] hover:text-white text-[#641f2a] rounded-xl text-xs font-bold uppercase tracking-wider transition-colors">Apply</button>
+                    </div>
+                    <p id="coupon-feedback" class="text-[11px] mt-1 font-semibold"></p>
+                </div>
+
+                <div class="pt-4 border-t border-[#641f2a]/10 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs text-[#641f2a]/60 uppercase">Total Amount:</span>
+                        <p id="checkout-total-amount" class="text-xl font-bold text-[#641f2a]">₹ 0</p>
+                    </div>
+                    <button type="submit" class="px-8 py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        Continue to Payment
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAYMENT MODAL -->
+    <div id="payment-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative text-left">
+            <button onclick="closePaymentModal()" class="absolute top-6 right-6 text-[#641f2a] text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-lock text-2xl text-[#641f2a]"></i>
+                <h3 class="font-serif text-xl font-bold text-[#641f2a] mt-2 uppercase tracking-wider">Shrivi Pay / Razorpay Secure</h3>
+            </div>
+            <form id="payment-form" onsubmit="handlePayment(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Card Number</label>
+                    <input required maxlength="19" placeholder="4242 4242 4242 4242" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Expiry</label>
+                        <input required placeholder="MM/YY" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">CVV</label>
+                        <input required maxlength="3" placeholder="123" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none">
+                    </div>
+                </div>
+                <button id="pay-submit-btn" type="submit" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-2">
+                    Pay <span id="pay-amount-label"></span> Securely
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION MODAL -->
+    <div id="order-confirm-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative text-center">
+            <div class="w-16 h-16 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-check"></i></div>
+            <h3 class="font-serif text-2xl font-bold text-[#641f2a]">Order Confirmed!</h3>
+            <p id="order-confirm-id" class="text-sm text-[#641f2a]/70 mt-2 font-semibold"></p>
+            <button onclick="closeOrderConfirm()" class="w-full mt-6 py-3.5 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors cursor-pointer">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- ADD ADDRESS MODAL POPUP -->
+    <div id="add-address-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative text-left">
+            <button onclick="closeAddAddressModal()" class="absolute top-6 right-6 text-[#641f2a] text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-serif text-xl font-bold text-[#641f2a] mb-4">Add New Address</h3>
+            <form onsubmit="handleAddNewAddress(event)" class="space-y-3">
+                <input id="new-addr-name" type="text" required placeholder="Full Name" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs text-[#641f2a] focus:outline-none">
+                <input id="new-addr-line" type="text" required placeholder="Street / House No, Area" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs text-[#641f2a] focus:outline-none">
+                <input id="new-addr-city-state" type="text" required placeholder="City, State, Pincode" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs text-[#641f2a] focus:outline-none">
+                <input id="new-addr-phone" type="tel" required placeholder="Contact Number" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-xs text-[#641f2a] focus:outline-none">
+                <button type="submit" class="w-full mt-3 py-3.5 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors cursor-pointer">Save Address</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2"></div>
+
+    <!-- Top Static Burgundy Bar with Moving Text -->
+    <div style="background-color: #641f2a; color: #ffffff; overflow: hidden; white-space: nowrap; padding: 10px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            Complimentary Shipping on Orders Above ₹2,999 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; Handcrafted with Love &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; New Luxury Crochet Collection Live Now
+        </marquee>
+    </div>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-40 bg-[#f9f6f0]/95 backdrop-blur-md border-b border-[#e8dcce]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <button id="mobile-menu-btn" class="md:hidden text-[#641f2a] p-2 focus:outline-none cursor-pointer">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/burgundy logo.png" alt="Shrivi Creations Logo" class="h-14 w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105" id="brand-logo-img" onerror="this.src='https://images.unsplash.com/photo-1543322747-813a34a873d3?auto=format&fit=crop&q=80&w=300'">
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-bold tracking-[0.2em] uppercase">
+                <a href="#" onclick="openPage('tops'); return false;" class="hover:text-[#641f2a]/60 transition-colors py-2 border-b-2 border-transparent hover:border-[#641f2a] cursor-pointer">Tops</a>
+                <a href="#" onclick="openPage('cardigans'); return false;" class="hover:text-[#641f2a]/60 transition-colors py-2 border-b-2 border-transparent hover:border-[#641f2a] cursor-pointer">Cardigans</a>
+                <a href="#" onclick="openPage('bags'); return false;" class="hover:text-[#641f2a]/60 transition-colors py-2 border-b-2 border-transparent hover:border-[#641f2a] cursor-pointer">Bags</a>
+            </nav>
+
+            <div class="flex items-center space-x-6 text-base">
+                <button id="search-toggle-btn" onclick="toggleSearch()" class="hover:text-[#641f2a]/70 transition-colors cursor-pointer" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="wishlist-btn" onclick="openPage('wishlist')" class="hover:text-[#641f2a]/70 transition-colors relative cursor-pointer" title="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span id="wishlist-badge" class="absolute -top-2 -right-2 bg-[#641f2a] text-[#f9f6f0] text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button id="cart-btn" onclick="openPage('cart')" class="hover:text-[#641f2a]/70 transition-colors relative cursor-pointer" title="Shopping Bag">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-[#641f2a] text-[#f9f6f0] text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+                <button id="profile-btn" onclick="handleProfileClick()" class="hidden sm:block hover:text-[#641f2a]/70 transition-colors cursor-pointer" title="Account">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="search-dropdown" class="hidden bg-[#f3ede2] border-t border-[#e8dcce] px-4 py-4 shadow-inner">
+            <div class="max-w-2xl mx-auto relative flex items-center">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 text-[#641f2a]/50"></i>
+                <input type="text" id="search-input" oninput="handleSearchInput()" placeholder="Search tops, cardigans, bags, bows..." class="w-full bg-white text-[#641f2a] pl-12 pr-10 py-3 rounded-full border border-[#e8dcce] focus:outline-none focus:ring-2 focus:ring-[#641f2a] text-xs uppercase tracking-wider">
+                <button onclick="toggleSearch()" class="absolute right-4 text-[#641f2a]/60 hover:text-[#641f2a] cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div id="search-results" class="max-w-2xl mx-auto mt-3 hidden bg-white rounded-2xl shadow-lg overflow-hidden divide-y divide-[#f0e6d2]"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden transition-opacity">
+        <div class="fixed inset-y-0 left-0 w-4/5 max-w-sm bg-[#f9f6f0] p-6 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300" id="mobile-drawer">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-[#e8dcce]">
+                    <span class="font-serif tracking-widest text-lg font-bold uppercase">Shrivi Creations</span>
+                    <button id="mobile-menu-close" class="text-[#641f2a] p-2 cursor-pointer"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+                <nav class="flex flex-col space-y-4 pt-6 text-xs font-bold tracking-[0.2em] uppercase">
+                    <a href="#" onclick="openPage('tops'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Tops</a>
+                    <a href="#" onclick="openPage('cardigans'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Cardigans</a>
+                    <a href="#" onclick="openPage('bags'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Bags</a>
+                    <a href="#" onclick="openPage('gift'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Gift Cards</a>
+                    <a href="#" onclick="openPage('track'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Track Order</a>
+                    <a href="#" onclick="openPage('contact'); return false;" class="mobile-nav-link py-2 border-b border-[#e8dcce]">Contact Us</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-[#e8dcce] text-center text-[10px] tracking-widest uppercase text-[#641f2a]/70">
+                <p>&copy; 2026 Shrivi Creations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center cursor-pointer-card" onclick="openQuickViewById('p1')">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/ChatGPT Image Sep 19, 2026, 10_53_23 AM.png" alt="Hero Model" class="w-full h-full object-cover object-center" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200'">
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+            <div class="max-w-s text-[#641f2a]">
+                <h1 class="text-3xl sm:text-5xl font-serif font-normal text-brand leading-[1.2] tracking-wide">
+                    <b>Crocheted with love.<br><span class="font-serif font-normal">Worn with love.</span></b>
+                </h1>
+                <div class="mt-8">
+                    <a href="#new-arrivals" onclick="event.stopPropagation();" class="inline-flex items-center gap-3 bg-[#641f2a] hover:bg-[#4a151f] text-[#f9f6f0] px-8 py-4 rounded-full font-bold tracking-[0.2em] uppercase text-xs shadow-xl transition-all transform hover:-translate-y-0.5 border border-white/25">
+                        <span>Shop Now</span>
+                        <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 Cards Section -->
+    <section id="tops" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-md cursor-pointer-card category-card product-card-3d" onclick="openPage('tops')">
+                <img src="assets/Vintage Crochet Tank Top with Jeans _ Chic Everyday Outfit.jpeg" alt="Everyday" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-8 text-center text-white"><h3 class="font-serif text-3xl font-normal tracking-[0.15em] uppercase drop-shadow">EVERYDAY / TOPS</h3></div>
+            </div>
+            <div id="cardigans" class="group relative h-[450px] rounded-3xl overflow-hidden shadow-md cursor-pointer-card category-card product-card-3d" onclick="openPage('cardigans')">
+                <img src="assets/ChatGPT Image Sep 19, 2026, 11_37_07 AM.png" alt="Layering" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-8 text-center text-white"><h3 class="font-serif text-3xl font-normal tracking-[0.15em] uppercase drop-shadow">LAYERING</h3></div>
+            </div>
+            <div class="group relative h-[450px] rounded-3xl overflow-hidden shadow-md cursor-pointer-card category-card product-card-3d" onclick="openQuickViewById('p5')">
+                <img src="assets/ChatGPT Image Sep 19, 2026, 11_19_18 AM.png" alt="Statement" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-8 text-center text-white"><h3 class="font-serif text-3xl font-normal tracking-[0.15em] uppercase drop-shadow">STATEMENT</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Middle 2 Cards Section -->
+    <section id="bags" class="pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="group relative h-[650px] rounded-3xl overflow-hidden shadow-md cursor-pointer-card category-card product-card-3d" onclick="openPage('bags')">
+                <img src="assets/ChatGPT Image Sep 19, 2026, 11_31_18 AM.png" alt="The Bag Edit" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-8 text-center text-white"><h3 class="font-serif text-3xl font-normal tracking-[0.15em] uppercase drop-shadow">THE BAG EDIT / BAGS</h3></div>
+            </div>
+            <div class="group relative h-[650px] rounded-3xl overflow-hidden shadow-md cursor-pointer-card category-card product-card-3d" onclick="openQuickViewById('p6')">
+                <img src="assets/ChatGPT Image Sep 19, 2026, 11_32_30 AM.png" alt="Most Loved" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div class="absolute inset-x-0 bottom-8 text-center text-white"><h3 class="font-serif text-3xl font-normal tracking-[0.15em] uppercase drop-shadow">MOST LOVED</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section id="new-arrivals" style="padding: 60px 20px; max-width: 1200px; margin: 0 auto; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 id="section-title-products" style="font-family: 'Playfair Display', serif; font-size: 30px; font-weight: bold; color: #641f2a; text-transform: uppercase; letter-spacing: 2px;">NEW ARRIVALS</h2>
+            <div style="width: 50px; height: 2px; background-color: #641f2a; margin: 10px auto 0 auto;"></div>
+        </div>
+        <div id="new-arrivals-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;"></div>
+    </section>
+
+    <!-- Watch & Shop Section -->
+    <section id="watch-shop" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#641f2a] tracking-wider uppercase">WATCH & SHOP</h2>
+            <div class="w-12 h-[2px] bg-[#641f2a] mx-auto mt-3"></div>
+        </div>
+        <div id="watch-shop-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer style="background-color: #641f2a; color: #ffffff; padding: 60px 20px 30px 20px; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 500; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase;">ABOUT SHRIVI CREATIONS</h3>
+                <p style="font-size: 14px; line-height: 1.8; color: #f2f2f2; font-weight: 300; max-width: 750px; margin: 0 auto;">
+                    Shrivi Creations is a crochet fashion label built around the beauty of handmade craft and modern everyday style.<br>
+                    We create thoughtfully designed tops, cardigans and bags that bring texture, individuality and a sense of warmth to the way you dress.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 40px; margin-bottom: 30px;">
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">SHRIVI CREATIONS</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                        <li><a href="#" onclick="openPage('contact'); return false;" style="color: #e6e6e6; text-decoration: none;">Contact Us</a></li>
+                        <li><a href="#" onclick="openPage('privacy'); return false;" style="color: #e6e6e6; text-decoration: none;">Privacy Policies</a></li>
+                        <li><a href="#" onclick="openPage('terms'); return false;" style="color: #e6e6e6; text-decoration: none;">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="openPage('shipping'); return false;" style="color: #e6e6e6; text-decoration: none;">Shipping Policy</a></li>
+                        <li><a href="#" onclick="openPage('blog'); return false;" style="color: #e6e6e6; text-decoration: none;">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">ACCOUNT</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                        <li><a href="#" onclick="openPage('account'); return false;" style="color: #e6e6e6; text-decoration: none;">My Account</a></li>
+                        <li><a href="#" onclick="openPage('track'); return false;" style="color: #e6e6e6; text-decoration: none;">Track your Order</a></li>
+                        <li><a href="#" onclick="openPage('work'); return false;" style="color: #e6e6e6; text-decoration: none;">Work with Us</a></li>
+                        <li><a href="#" onclick="openPage('gift'); return false;" style="color: #e6e6e6; text-decoration: none;">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 15px; text-transform: uppercase;">FOLLOW US ON</h4>
+                    <p style="font-size: 13px; color: #e6e6e6; margin-bottom: 20px; font-weight: 300;">Get connected with us on social media</p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 48px); grid-template-rows: repeat(1, 42px); border: 1px solid rgba(255, 255, 255, 0.3); width: fit-content;">
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; border-right: 1px solid rgba(255, 255, 255, 0.3); border-bottom: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/shrivi_creations?stkn=c3hidXZ6MXh4ZnZv" style="display: flex; align-items: center; justify-content: center; color: white; border-bottom: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; border-right: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;"><i class="fa-brands fa-at"></i></a>
+                    </div> </div>
+            </div>
+
+            <div style="text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; font-weight: 300;">
+                Copyrights &copy; 2026 Shrivi Creations<br>&bull; <a href="https://clickormedia.co.in" target="_blank" style="color: inherit; text-decoration: underline; cursor: pointer;">Crafted by ClickOrMedia</a> 
+            </div>
+            <div style="text-align: center; margin-top: -23px;">
+                <a href="#" onclick="openAdminLoginModal(); return false;" style="color: #fff; text-decoration: underline; cursor: pointer; font-size: 12px;
+    margin-left: 92%;">Admin Panel</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================= JAVASCRIPT LOGIC ============================= -->
+    <script>
+        const DEFAULT_PRODUCTS = [
+            { id: 'p1', type: 'image', name: 'The Bow Crochet Top', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', tag: 'Handcrafted crochet &bull; Burgundy & Ivory', category: 'Tops', desc: 'Handcrafted crochet top with delicate burgundy bow details and airy stitch work.' },
+            { id: 'p2', type: 'image', name: 'The Mosaic Crochet Cardigan', price: 3999, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Handcrafted crochet &bull; Multicolour', category: 'Cardigans', desc: 'Luxurious multi-color mosaic cardigan crafted with premium chunky woolen yarn.' },
+            { id: 'p3', type: 'image', name: 'The Sage Cloud Bag', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Handcrafted crochet &bull; Sage green', category: 'Bags', desc: 'Textured sage green cloud clutch with custom metal branding and soft inner lining.' },
+            { id: 'p4', type: 'image', name: 'The Olive Tank Top', price: 1999, img: 'assets/ChatGPT Image Sep 19, 2026, 12_17_31 PM.png', tag: 'Handcrafted crochet &bull; Cream & olive', category: 'Tops', desc: 'Vintage ribbed crochet tank top featuring elegant olive green striped borders.' },
+            { id: 'p5', type: 'video', name: 'The Sunny Tulip Sweater', price: 4500, video: 'assets/v1.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', category: 'Cardigans', desc: 'Handcrafted with textured bow patterns and a soft, oversized silhouette perfect for layering.' },
+            { id: 'p6', type: 'video', name: 'The Daisy Bloom Cardigan', price: 6200, video: 'assets/v2.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', category: 'Cardigans', desc: 'A granny-square artisanal cardigan, hand-pieced motif by motif for a one-of-a-kind finish.' },
+            { id: 'p7', type: 'video', name: 'The Olive Plica Bag', price: 3800, video: 'assets/v3.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', category: 'Bags', desc: 'A handmade crochet clutch masterpiece with a structured base and braided handle.' }
+        ];
+
+        function loadJSON(key, fallback) {
+            try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; } catch (e) { return fallback; }
+        }
+        function saveJSON(key, value) {
+            try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+        }
+
+        if (!localStorage.getItem('shrivi_products')) { saveJSON('shrivi_products', DEFAULT_PRODUCTS); }
+        let PRODUCTS = loadJSON('shrivi_products', DEFAULT_PRODUCTS);
+
+        let cart = loadJSON('shrivi_cart', [
+            { id: 'p2', name: 'Mustard Bloom Crochet Cardigan', price: 3499, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Mustard yellow · Oversized fit', size: 'M', qty: 1 },
+            { id: 'p3', name: 'Olive Everyday Crochet Bag', price: 2499, img: 'ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Olive green · One Size', size: 'One Size', qty: 1 }
+        ]);
+        let wishlist = loadJSON('shrivi_wishlist', ['p1', 'p2']);
+        let reviewsData = loadJSON('shrivi_reviews', {
+            'p1': [{ name: 'Aanya S.', rating: 5, date: '12 Sep 2026', comment: 'Absolutely stunning quality! The crochet work is very neat.' }, { name: 'Priya M.', rating: 5, date: '10 Sep 2026', comment: 'Fits wonderfully and feels so luxurious.' }],
+            'p2': [{ name: 'Riya K.', rating: 5, date: '14 Sep 2026', comment: 'Gorgeous mosaic colours, my new favorite layer piece.' }]
+        });
+
+        // Dynamic user session and addresses management
+        let currentUser = loadJSON('shrivi_current_user', {
+            firstName: 'SHIVI',
+            lastName: 'GAMBHIR',
+            email: 'shivi23@gmail.com',
+            phone: '89502*****'
+        });
+
+        let userAddresses = loadJSON('shrivi_addresses', [
+            { id: 1, name: 'Shivi Gambhir', line: 'Mati Dass Nagar,', cityState: 'Ambala Cantt, Haryana, 133001', phone: '89502*****' }
+        ]);
+
+        let selectedSize = 'M';
+        let currentQvId = null;
+        let checkoutDetails = null;
+        let appliedCoupon = null;
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if(!container) return;
+            const toast = document.createElement('div');
+            toast.className = "bg-[#641f2a] text-white px-6 py-3 rounded-2xl shadow-2xl text-xs font-semibold tracking-wide uppercase flex items-center space-x-3 transition-all duration-300";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-green-400"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3000);
+        }
+
+        // --- Admin Login Modal Handlers ---
+        function openAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            if(modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            if(modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('admin-user').value.trim();
+            const pass = document.getElementById('admin-pass').value.trim();
+            
+            // Credentials: username -> admin, password -> shrivi2026
+            if (user === 'admin' && pass === 'shrivi2026') {
+                showToast('Login successful! Opening Admin Panel...');
+                localStorage.setItem('shrivi_admin_auth', 'true');
+                closeAdminLoginModal();
+                setTimeout(() => {
+                    window.location.href = 'admin.html';
+                }, 800);
+            } else {
+                showToast('Invalid admin credentials.');
+            }
+        }
+
+        function renderNewArrivals() {
+            const grid = document.getElementById('new-arrivals-grid');
+            if(!grid) return;
+            let items = PRODUCTS.filter(p => p.type === 'image');
+            grid.innerHTML = items.map(p => `
+                <div class="product-card-3d cursor-pointer-card" style="background-color: #eedecc; border-radius: 20px; padding: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column;" onclick="openQuickViewById('${p.id}')">
+                    <div style="width: 100%; height: 260px; border-radius: 14px; overflow: hidden; position: relative; margin-bottom: 12px;">
+                        <img src="${p.img}" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <button onclick="event.stopPropagation(); openQuickViewById('${p.id}')" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #641f2a; border: none; padding: 8px 16px; border-radius: 30px; font-size: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 85%;">QUICK VIEW</button>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 14px; font-weight: bold; color: #641f2a; margin-bottom: 2px;">${p.name}</h3>
+                    <p style="font-size: 10px; color: #555; margin-bottom: 8px; font-weight: 300;">${p.tag || p.category}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="font-weight: bold; color: #641f2a; font-size: 14px;">₹${p.price.toLocaleString()}</span>
+                        <div class="flex gap-1.5">
+                            <button onclick="event.stopPropagation(); toggleWishlistItem('${p.id}')" class="w-7 h-7 rounded-full bg-white text-[#641f2a] flex items-center justify-center shadow hover:bg-stone-100 text-xs"><i class="fa-regular fa-heart"></i></button>
+                            <button onclick="event.stopPropagation(); addToCartById('${p.id}')" style="background: #641f2a; color: white; border: none; padding: 6px 12px; border-radius: 20px; font-size: 10px; text-transform: uppercase; font-weight: 600; cursor: pointer;">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderWatchShop() {
+            const grid = document.getElementById('watch-shop-grid');
+            if(!grid) return;
+            const items = PRODUCTS.filter(p => p.type === 'video');
+            grid.innerHTML = items.map(p => `
+                <div class="bg-white rounded-3xl overflow-hidden shadow-md border border-[#e8dcce] flex flex-col group product-card-3d">
+                    <div class="relative h-96 bg-stone-900 overflow-hidden cursor-pointer-card" onclick="openQuickViewById('${p.id}')">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <source src="assets/v1.mp4" type="video/mp4">
+
+                        </video>
+                        <button onclick="event.stopPropagation(); openQuickViewById('${p.id}')" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #641f2a; border: none; padding: 10px 24px; border-radius: 30px; font-size: 11px; text-transform: uppercase; font-weight: bold; letter-spacing: 1.5px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 85%;">QUICK VIEW</button>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between bg-[#641f2a] text-[#f9f6f0] rounded-b-3xl">
+                        <div>
+                            <h3 class="font-serif text-lg font-bold mb-1">${p.name}</h3>
+                            <p class="text-[11px] text-[#f9f6f0]/80">${p.desc}</p>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="font-serif text-lg font-bold">₹ ${p.price.toLocaleString()}</span>
+                            <button onclick="addToCartById('${p.id}')" class="bg-[#f9f6f0] text-[#641f2a] hover:bg-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getProduct(id) { return PRODUCTS.find(p => p.id === id); }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+            renderCart();
+        }
+        function toggleWishlist() {
+            document.getElementById('wishlist-drawer').classList.toggle('hidden');
+            renderWishlist();
+        }
+        function toggleSearch() {
+            document.getElementById('search-dropdown').classList.toggle('hidden');
+        }
+
+        function handleProfileClick() {
+            openPage('account');
+        }
+
+        function addToCartById(id, size) {
+            const p = getProduct(id);
+            if (!p) return;
+            const useSize = size || 'M';
+            const existing = cart.find(item => item.id === id && item.size === useSize);
+            if (existing) { existing.qty += 1; }
+            else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, tag: p.tag || p.category, size: useSize, qty: 1 }); }
+            saveJSON('shrivi_cart', cart);
+            updateCounters();
+            showToast(p.name + ' added to shopping bag');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveJSON('shrivi_cart', cart);
+            updateCounters();
+            renderCart();
+            if(document.getElementById('full-cart-items-container')) { renderFullCartPage(); }
+        }
+
+        function updateCartQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) { cart.splice(index, 1); }
+            saveJSON('shrivi_cart', cart);
+            updateCounters();
+            renderCart();
+            if(document.getElementById('full-cart-items-container')) { renderFullCartPage(); }
+        }
+
+        function updateCounters() {
+            const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+            document.getElementById('cart-badge').innerText = totalCount;
+            document.getElementById('cart-badge').classList.remove('hidden');
+            document.getElementById('cart-item-count').innerText = totalCount;
+
+            const wCount = wishlist.length;
+            const wBadge = document.getElementById('wishlist-badge');
+            wBadge.innerText = wCount;
+            wBadge.classList.toggle('hidden', wCount === 0);
+            document.getElementById('wishlist-item-count').innerText = wCount;
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            if(!container) return;
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-[#641f2a]/60 text-center py-12">Your shopping bag is currently empty.</p>`;
+                document.getElementById('cart-subtotal').innerText = '₹ 0';
+                return;
+            }
+            let html = '';
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.qty;
+                html += `
+                    <div class="flex items-center py-4 gap-4">
+                        <img src="${item.img}" class="w-16 h-20 object-cover rounded-xl bg-[#f4ede2]">
+                        <div class="flex-1">
+                            <h4 class="font-serif font-semibold text-[#641f2a] text-sm">${item.name}</h4>
+                            <p class="text-xs text-[#641f2a]/60 mt-0.5">Size: ${item.size} · ₹ ${item.price.toLocaleString()} x ${item.qty}</p>
+                            <div class="flex items-center gap-3 mt-2">
+                                <div class="flex items-center border border-[#641f2a]/30 rounded-lg px-2 py-1 text-xs">
+                                    <button onclick="updateCartQty(${index}, -1)" class="px-1 font-bold">-</button>
+                                    <span class="px-2">${item.qty}</span>
+                                    <button onclick="updateCartQty(${index}, 1)" class="px-1 font-bold">+</button>
+                                </div>
+                                <button onclick="removeFromCart(${index})" class="text-xs text-red-700 hover:underline">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            document.getElementById('cart-subtotal').innerText = '₹ ' + subtotal.toLocaleString();
+        }
+
+        function renderWishlist() {
+            const container = document.getElementById('wishlist-items-container');
+            if(!container) return;
+            if (wishlist.length === 0) {
+                container.innerHTML = `<p class="text-[#641f2a]/60 text-center py-12">Your wishlist is currently empty.</p>`;
+                return;
+            }
+            container.innerHTML = wishlist.map((id) => {
+                const p = getProduct(id);
+                if (!p) return '';
+                return `
+                    <div class="flex items-center py-4 gap-4">
+                        <img src="${p.img}" class="w-16 h-20 object-cover rounded-xl bg-[#f4ede2] cursor-pointer" onclick="openQuickViewById('${p.id}'); toggleWishlist();">
+                        <div class="flex-1 cursor-pointer" onclick="openQuickViewById('${p.id}'); toggleWishlist();">
+                            <h4 class="font-serif font-semibold text-[#641f2a] text-sm">${p.name}</h4>
+                            <p class="text-xs text-[#641f2a]/60 mt-0.5">${p.tag || p.category}</p>
+                            <p class="text-xs font-bold mt-1">₹ ${p.price.toLocaleString()}</p>
+                        </div>
+                        <button onclick="addToCartById('${p.id}'); toggleWishlistItem('${p.id}');" class="text-[10px] uppercase font-bold text-white bg-[#641f2a] px-3 py-2 rounded-full cursor-pointer">Add to Cart</button>
+                        <button onclick="toggleWishlistItem('${p.id}')" class="text-xs text-red-700"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleWishlistItem(id) {
+            const idx = wishlist.indexOf(id);
+            if (idx > -1) { wishlist.splice(idx, 1); showToast('Removed from wishlist'); }
+            else { wishlist.push(id); showToast('Added to wishlist'); }
+            saveJSON('shrivi_wishlist', wishlist);
+            updateCounters();
+            renderWishlist();
+            if(document.getElementById('full-wishlist-grid')) { renderFullWishlistPage(); }
+            if(currentQvId === id) { updateQvWishlistBtn(); }
+        }
+
+        function toggleWishlistCurrent() {
+            if (currentQvId) { toggleWishlistItem(currentQvId); }
+        }
+
+        function updateQvWishlistBtn() {
+            const btn = document.getElementById('qv-wishlist-btn');
+            if(!btn || !currentQvId) return;
+            const isFav = wishlist.includes(currentQvId);
+            btn.innerHTML = isFav ? '<i class="fa-solid fa-heart text-base text-red-700"></i>' : '<i class="fa-regular fa-heart text-base"></i>';
+        }
+
+        function handleSearchInput() {
+            const q = document.getElementById('search-input').value.trim().toLowerCase();
+            const box = document.getElementById('search-results');
+            if (!q) { box.classList.add('hidden'); box.innerHTML = ''; return; }
+            const matches = PRODUCTS.filter(p => p.name.toLowerCase().includes(q) || (p.category || '').toLowerCase().includes(q));
+            if (matches.length === 0) {
+                box.innerHTML = `<div class="p-4 text-xs text-[#641f2a]/60">No pieces found for "${q}"</div>`;
+            } else {
+                box.innerHTML = matches.map(p => `
+                    <div class="flex items-center gap-3 p-3 hover:bg-[#f9f6f0] cursor-pointer" onclick="openQuickViewById('${p.id}'); toggleSearch();">
+                        <img src="${p.img}" class="w-10 h-12 object-cover rounded-lg bg-[#f4ede2]">
+                        <div class="flex-1 text-left">
+                            <p class="text-xs font-bold text-[#641f2a]">${p.name}</p>
+                            <p class="text-[10px] text-[#641f2a]/60">₹${p.price.toLocaleString()}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            box.classList.remove('hidden');
+        }
+
+        function openQuickViewById(id) {
+            const p = getProduct(id);
+            if (!p) return;
+            currentQvId = id;
+            document.getElementById('qv-img').src = p.img;
+            document.getElementById('qv-title').innerText = p.name;
+            document.getElementById('qv-price').innerText = '₹' + p.price.toLocaleString();
+            document.getElementById('qv-desc').innerText = p.desc || '';
+            document.getElementById('qv-category').innerText = p.category || 'Crochet';
+            document.getElementById('qv-add-btn').setAttribute('onclick', `addToCartById('${p.id}', selectedSize); closeQuickView();`);
+           
+            updateQvWishlistBtn();
+            renderQvReviews(id);
+            switchQvTab('details');
+
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeQuickView() {
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            currentQvId = null;
+        }
+
+        function buyNowCurrent() {
+            if (currentQvId) {
+                addToCartById(currentQvId, selectedSize);
+                closeQuickView();
+                proceedToCheckout();
+            }
+        }
+
+        function switchQvTab(tabName) {
+            ['details', 'sizechart', 'reviews'].forEach(t => {
+                const btn = document.getElementById('qv-tab-' + t);
+                const pane = document.getElementById('qv-pane-' + t);
+                if(btn && pane) {
+                    if(t === tabName) {
+                        btn.className = "text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer";
+                        pane.classList.remove('hidden');
+                    } else {
+                        btn.className = "text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer";
+                        pane.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function renderQvReviews(productId) {
+            const listEl = document.getElementById('qv-reviews-list');
+            const countEl = document.getElementById('qv-review-count');
+            const itemReviews = reviewsData[productId] || [];
+            if(countEl) countEl.innerText = itemReviews.length;
+            if(!listEl) return;
+            if(itemReviews.length === 0) {
+                listEl.innerHTML = `<p class="text-xs text-[#641f2a]/60 py-2">No reviews yet. Be the first to leave one!</p>`;
+                return;
+            }
+            listEl.innerHTML = itemReviews.map(r => `
+                <div class="p-3 bg-white rounded-xl border border-[#641f2a]/10 space-y-1">
+                    <div class="flex justify-between items-center text-xs font-bold text-[#641f2a]">
+                        <span>${r.name}</span>
+                        <span class="text-amber-600">${'★'.repeat(r.rating)}</span>
+                    </div>
+                    <p class="text-xs text-[#000000] font-medium">${r.comment}</p>
+                    <span class="text-[10px] text-[#641f2a]/50">${r.date}</span>
+                </div>
+            `).join('');
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            if(!currentQvId) return;
+            const name = document.getElementById('rev-name').value;
+            const rating = parseInt(document.getElementById('rev-rating').value);
+            const comment = document.getElementById('rev-comment').value;
+           
+            if(!reviewsData[currentQvId]) reviewsData[currentQvId] = [];
+            reviewsData[currentQvId].unshift({
+                name, rating, comment, date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+            });
+            saveJSON('shrivi_reviews', reviewsData);
+            renderQvReviews(currentQvId);
+            document.getElementById('rev-comment').value = '';
+            document.getElementById('rev-name').value = '';
+            showToast('Review submitted successfully!');
+        }
+
+        function selectSize(btn) {
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('bg-[#641f2a]/10', 'border-[#641f2a]');
+                b.classList.add('border-[#641f2a]/30');
+            });
+            btn.classList.add('bg-[#641f2a]/10', 'border-[#641f2a]');
+            btn.classList.remove('border-[#641f2a]/30');
+            selectedSize = btn.innerText.trim();
+        }
+
+        function applyCouponCode() {
+            const codeInput = document.getElementById('checkout-coupon-input').value.trim().toUpperCase();
+            const feedback = document.getElementById('coupon-feedback');
+            if (!codeInput) {
+                feedback.innerText = 'Please enter a coupon code.';
+                feedback.className = 'text-[11px] mt-1 font-semibold text-red-600';
+                return;
+            }
+            if (codeInput === 'SHRIVI10' || codeInput === 'SHRIVI') {
+                appliedCoupon = { code: codeInput, discountPct: 10 };
+                feedback.innerText = 'Coupon applied successfully (-10%)!';
+                feedback.className = 'text-[11px] mt-1 font-semibold text-green-700';
+                showToast('Coupon 10% OFF applied!');
+                updateCheckoutTotal();
+            } else {
+                appliedCoupon = null;
+                feedback.innerText = 'Invalid or expired coupon code.';
+                feedback.className = 'text-[11px] mt-1 font-semibold text-red-600';
+                updateCheckoutTotal();
+            }
+        }
+
+        function updateCheckoutTotal() {
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            let finalAmt = subtotal;
+            if (appliedCoupon) {
+                finalAmt = Math.round(subtotal * 0.9);
+            }
+            const amtEl = document.getElementById('checkout-total-amount');
+            if (amtEl) {
+                if (appliedCoupon) {
+                    amtEl.innerHTML = `<span class="line-through text-xs text-[#641f2a]/50 mr-2">₹ ${subtotal.toLocaleString()}</span> ₹ ${finalAmt.toLocaleString()} <span class="text-[10px] text-green-700 font-bold ml-1">(10% OFF)</span>`;
+                } else {
+                    amtEl.innerText = '₹ ' + finalAmt.toLocaleString();
+                }
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) { showToast('Your shopping bag is empty'); return; }
+            closePage();
+            appliedCoupon = null;
+            updateCheckoutTotal();
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            if (currentUser) {
+                document.getElementById('chk-name').value = (currentUser.firstName || '') + ' ' + (currentUser.lastName || '');
+                document.getElementById('chk-email').value = currentUser.email || '';
+                document.getElementById('chk-phone').value = currentUser.phone || '';
+            }
+        }
+        function closeCheckout() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleCheckoutDetails(e) {
+            e.preventDefault();
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            let finalAmt = appliedCoupon ? Math.round(subtotal * 0.9) : subtotal;
+            checkoutDetails = {
+                name: document.getElementById('chk-name').value,
+                email: document.getElementById('chk-email').value,
+                phone: document.getElementById('chk-phone').value,
+                address: document.getElementById('chk-address').value,
+                coupon: appliedCoupon ? appliedCoupon.code : null,
+                totalPaid: finalAmt
+            };
+            closeCheckout();
+            document.getElementById('pay-amount-label').innerText = '₹ ' + finalAmt.toLocaleString();
+            const modal = document.getElementById('payment-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closePaymentModal() {
+            const modal = document.getElementById('payment-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handlePayment(e) {
+            e.preventDefault();
+            const btn = document.getElementById('pay-submit-btn');
+            btn.disabled = true;
+            btn.innerText = 'Processing…';
+            setTimeout(() => {
+                const finalAmt = checkoutDetails.totalPaid;
+                const order = {
+                    id: 'SC' + Math.floor(1000 + Math.random() * 9000) + Date.now().toString().slice(-4),
+                    date: new Date().toISOString(),
+                    items: cart,
+                    subtotal: finalAmt,
+                    customer: checkoutDetails,
+                    status: 'Order Confirmed'
+                };
+                const orders = loadJSON('shrivi_orders', []);
+                orders.unshift(order);
+                saveJSON('shrivi_orders', orders);
+
+                cart = [];
+                saveJSON('shrivi_cart', cart);
+                updateCounters();
+                closePaymentModal();
+                btn.disabled = false;
+                btn.innerText = 'Pay Securely';
+
+                document.getElementById('order-confirm-id').innerText = 'Order #' + order.id + ' · ₹' + finalAmt.toLocaleString();
+                const cModal = document.getElementById('order-confirm-modal');
+                cModal.classList.remove('hidden');
+                cModal.classList.add('flex');
+            }, 1400);
+        }
+        function closeOrderConfirm() {
+            const modal = document.getElementById('order-confirm-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /* ----------------------- Cinematic 3D Blog Modal Logic ----------------------- */
+        function openBlogCinematic(title, date, img, category, fullText) {
+            document.getElementById('blog-modal-title').innerText = title;
+            document.getElementById('blog-modal-date').innerText = date;
+            document.getElementById('blog-modal-img').src = img;
+            document.getElementById('blog-modal-category').innerText = category;
+           
+            const bodyHTML = `
+                <p class="text-xs font-serif italic text-[#641f2a] font-bold mb-2">"Crafted with patience, worn with individuality."</p>
+                <p class="leading-relaxed mb-3">${fullText}</p>
+                <p class="leading-relaxed mb-3">At Shrivi Creations, every loop and stitch tells a story of mindful creation. In a world of fast-fashion duplication, handmade pieces stand out because of the human touch embedded in their texture. Whether you are styling an everyday staple or preserving a treasured heirloom garment, understanding the artistry enhances your connection to what you wear.</p>
+                <p class="leading-relaxed mb-3">Pairing these pieces with modern silhouettes creates an effortless balance between traditional craftsmanship and contemporary wardrobe versatility. Take your time experimenting with layers, tones, and accessories to let your individuality shine through every look.</p>
+                <p class="pt-2 text-[10px] text-[#641f2a]/60 uppercase tracking-widest font-bold">&mdash; Shrivi Creations Journal</p>
+            `;
+            document.getElementById('blog-modal-body').innerHTML = bodyHTML;
+
+            const modal = document.getElementById('blog-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeBlogModal() {
+            const modal = document.getElementById('blog-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /* ----------------------- Sub-page router & Filter Drawer Logic ----------------------- */
+        function websiteHeaderHTML() {
+            return `
+                <div style="background-color: #641f2a; color: #ffffff; overflow: hidden; white-space: nowrap; padding: 10px 0; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;">
+                    <marquee behavior="scroll" direction="left" scrollamount="5">Complimentary Shipping on Orders Above ₹2,999 &nbsp;|&nbsp; Handcrafted with Love</marquee>
+                </div>
+                <header class="sticky top-0 z-40 bg-[#f9f6f0]/95 backdrop-blur-md border-b border-[#e8dcce]">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                        <a href="#" onclick="closePage(); return false;" class="flex items-center gap-3">
+                            <img src="assets/burgundy logo.png" alt="Shrivi Creations Logo" class="h-14 w-auto object-contain" onerror="this.src='https://images.unsplash.com/photo-1543322747-813a34a873d3?auto=format&fit=crop&q=80&w=300'">
+                        </a>
+                        <nav class="hidden md:flex items-center space-x-10 text-xs font-bold tracking-[0.2em] uppercase font-sans">
+                            <a href="#" onclick="openPage('tops'); return false;" class="hover:text-[#641f2a]/60">Tops</a>
+                            <a href="#" onclick="openPage('cardigans'); return false;" class="hover:text-[#641f2a]/60">Cardigans</a>
+                            <a href="#" onclick="openPage('bags'); return false;" class="hover:text-[#641f2a]/60">Bags</a>
+                        </nav>
+                        <div class="flex items-center space-x-4">
+                            <button onclick="closePage()" class="bg-[#641f2a] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#4a1720] transition-all cursor-pointer shadow-md flex items-center gap-2 font-sans">
+                                <i class="fa-solid fa-house"></i> Close / Home
+                            </button>
+                        </div>
+                    </div>
+                </header>
+            `;
+        }
+
+        function websiteFooterHTML() {
+            return `
+            <footer style="background-color: #641f2a; color: #ffffff; padding: 60px 20px 30px 20px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 500; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase;">ABOUT SHRIVI CREATIONS</h3>
+                        <p style="font-size: 14px; line-height: 1.8; color: #f2f2f2; font-weight: 300; max-width: 750px; margin: 0 auto;">
+                            Shrivi Creations is a crochet fashion label built around the beauty of handmade craft and modern everyday style.<br>
+                            We create thoughtfully designed tops, cardigans and bags that bring texture, individuality and a sense of warmth to the way you dress.
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 40px; margin-bottom: 30px;">
+                        <div>
+                            <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">SHRIVI CREATIONS</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                                <li><a href="#" onclick="openPage('contact'); return false;" style="color: #e6e6e6; text-decoration: none;">Contact Us</a></li>
+                                <li><a href="#" onclick="openPage('privacy'); return false;" style="color: #e6e6e6; text-decoration: none;">Privacy Policies</a></li>
+                                <li><a href="#" onclick="openPage('terms'); return false;" style="color: #e6e6e6; text-decoration: none;">Terms & Conditions</a></li>
+                                <li><a href="#" onclick="openPage('shipping'); return false;" style="color: #e6e6e6; text-decoration: none;">Shipping Policy</a></li>
+                                <li><a href="#" onclick="openPage('blog'); return false;" style="color: #e6e6e6; text-decoration: none;">Blogs</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 20px; text-transform: uppercase;">ACCOUNT</h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 2.2; font-weight: 300;">
+                                <li><a href="#" onclick="openPage('account'); return false;" style="color: #e6e6e6; text-decoration: none;">My Account</a></li>
+                                <li><a href="#" onclick="openPage('track'); return false;" style="color: #e6e6e6; text-decoration: none;">Track your Order</a></li>
+                                <li><a href="#" onclick="openPage('work'); return false;" style="color: #e6e6e6; text-decoration: none;">Work with Us</a></li>
+                                <li><a href="#" onclick="openPage('gift'); return false;" style="color: #e6e6e6; text-decoration: none;">Gift Cards</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 style="font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 15px; text-transform: uppercase;">FOLLOW US ON</h4>
+                            <p style="font-size: 13px; color: #e6e6e6; margin-bottom: 20px; font-weight: 300;">Get connected with us on social media</p>
+                            <div style="display: grid; grid-template-columns: repeat(4, 48px); grid-template-rows: repeat(1, 42px); border: 1px solid rgba(255, 255, 255, 0.3); width: fit-content;">
+                                <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; border-right: 1px solid rgba(255, 255, 255, 0.3); border-bottom: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/shrivi_creations?stkn=c3hidXZ6MXh4ZnZv" style="display: flex; align-items: center; justify-content: center; color: white; border-bottom: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; border-right: 1px solid rgba(255, 255, 255, 0.3); text-decoration: none;"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;"><i class="fa-brands fa-at"></i></a>
+                    </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; font-weight: 300;">
+                        Copyrights &copy; 2026 Shrivi Creations<br>&bull; <a href="https://clickormedia.co.in" target="_blank" style="color: inherit; text-decoration: underline; cursor: pointer;">Crafted by ClickOrMedia</a>  
+                    </div>
+                    <div style="text-align: center; margin-top: -23px;">
+                        <a href="admin.html" onclick="openAdminLoginModal(); return false;" style="color: #fff; text-decoration: underline; cursor: pointer; font-size: 12px; margin-left:92%;">Admin Panel</a>
+                    </div>
+                </div>
+            </footer>`;
+        }
+
+        function pageContentHTML(type) {
+            switch (type) {
+                case 'tops': return pageContentHTML_Category('Tops', 'Tops Collection');
+                case 'cardigans': return pageContentHTML_Category('Cardigans', 'Cardigans Collection');
+                case 'bags': return pageContentHTML_Category('Bags', 'Bags Collection');
+                case 'cart': return pageContentHTML_Cart();
+                case 'wishlist': return pageContentHTML_Wishlist();
+                case 'gift': return pageContentHTML_Gift();
+                case 'gift-builder': return pageContentHTML_GiftBuilder();
+                case 'track': return pageContentHTML_Track();
+                case 'work': return pageContentHTML_Work();
+                case 'login': return pageContentHTML_Login();
+                case 'create-account': return pageContentHTML_CreateAccount();
+                case 'account': return pageContentHTML_AccountEditProfile();
+                case 'orders': return pageContentHTML_AccountOrders();
+                case 'addresses': return pageContentHTML_AccountAddresses();
+                case 'blog': return pageContentHTML_Blog();
+                case 'privacy': return pageContentHTML_Privacy();
+                case 'terms': return pageContentHTML_Terms();
+                case 'shipping': return pageContentHTML_Shipping();
+                case 'contact': return pageContentHTML_Contact();
+                default: return `<div class="max-w-2xl mx-auto px-4 py-24 text-center"><p>Page not found.</p></div>`;
+            }
+        }
+
+        function pageContentHTML_Category(catName, titleText) {
+            let items = PRODUCTS.filter(p => (p.category || '').toLowerCase() === catName.toLowerCase());
+            let gridHtml = items.map(p => `
+                <div class="product-card-3d cursor-pointer-card" style="background-color: #eedecc; border-radius: 20px; padding: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column;" onclick="openQuickViewById('${p.id}')">
+                    <div style="width: 100%; height: 260px; border-radius: 14px; overflow: hidden; position: relative; margin-bottom: 12px;">
+                        <img src="${p.img}" alt="${p.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <button onclick="event.stopPropagation(); openQuickViewById('${p.id}')" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #641f2a; border: none; padding: 8px 16px; border-radius: 30px; font-size: 10px; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 85%;">QUICK VIEW</button>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 14px; font-weight: bold; color: #641f2a; margin-bottom: 2px;">${p.name}</h3>
+                    <p style="font-size: 10px; color: #555; margin-bottom: 8px; font-weight: 300;">${p.tag || p.category}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <span style="font-weight: bold; color: #641f2a; font-size: 14px;">₹${p.price.toLocaleString()}</span>
+                        <button onclick="event.stopPropagation(); addToCartById('${p.id}')" style="background: #641f2a; color: white; border: none; padding: 6px 14px; border-radius: 20px; font-size: 10px; text-transform: uppercase; font-weight: 600; cursor: pointer;">Add to Bag</button>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+            <div class="max-w-7xl mx-auto px-4 py-12 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold text-center">Home / <span class="text-[#641f2a]">${titleText}</span></p>
+                <div class="text-center mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">${titleText}</h1>
+                    <div style="width: 50px; height: 2px; background-color: #641f2a; margin: 10px auto 0 auto;"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                    <!-- Left Sidebar Filters Drawer -->
+                    <div class="lg:col-span-1 bg-[#f4ede2]/60 border border-[#641f2a]/15 rounded-3xl p-6 space-y-6 sticky top-28 shadow-sm">
+                        <h3 class="font-serif font-bold text-base tracking-wider uppercase border-b border-[#641f2a]/15 pb-3 flex items-center justify-between">
+                            <span>Filters</span> <i class="fa-solid fa-sliders text-xs"></i>
+                        </h3>
+                        
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase font-bold text-[#641f2a]">Category</label>
+                            <div class="space-y-1.5 text-xs font-medium text-[#000000]">
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="accent-[#641f2a]" onclick="openPage('${catName.toLowerCase()}')"> ${catName}</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]" onclick="openPage('tops')"> Tops</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]" onclick="openPage('cardigans')"> Cardigans</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]" onclick="openPage('bags')"> Bags</label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 border-t border-[#641f2a]/15 pt-4">
+                            <label class="block text-xs uppercase font-bold text-[#641f2a]">Price Range</label>
+                            <div class="space-y-1.5 text-xs font-medium text-[#000000]">
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Under ₹2,000</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> ₹2,000 - ₹4,000</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Above ₹4,000</label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 border-t border-[#641f2a]/15 pt-4">
+                            <label class="block text-xs uppercase font-bold text-[#641f2a]">Size</label>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-3 py-1 bg-white border border-[#641f2a]/30 rounded-lg text-xs font-bold cursor-pointer hover:bg-[#641f2a] hover:text-white">S</span>
+                                <span class="px-3 py-1 bg-white border border-[#641f2a]/30 rounded-lg text-xs font-bold cursor-pointer hover:bg-[#641f2a] hover:text-white">M</span>
+                                <span class="px-3 py-1 bg-white border border-[#641f2a]/30 rounded-lg text-xs font-bold cursor-pointer hover:bg-[#641f2a] hover:text-white">L</span>
+                                <span class="px-3 py-1 bg-white border border-[#641f2a]/30 rounded-lg text-xs font-bold cursor-pointer hover:bg-[#641f2a] hover:text-white">XL</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 border-t border-[#641f2a]/15 pt-4">
+                            <label class="block text-xs uppercase font-bold text-[#641f2a]">Color</label>
+                            <div class="space-y-1.5 text-xs font-medium text-[#000000]">
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Burgundy / Maroon</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Sage Green</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Cream & Ivory</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> Multicolour</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Products Grid (3D Smaller Cards) -->
+                    <div class="lg:col-span-3">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                            ${gridHtml || '<p class="col-span-full text-center text-xs text-[#641f2a]/60 py-12">No items found in this category.</p>'}
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function pageContentHTML_Cart() {
+            return `
+            <div class="max-w-4xl mx-auto px-4 py-12 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold text-center">Home / <span class="text-[#641f2a]">My Cart</span></p>
+                <div class="text-center mb-10">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">MY CART</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-semibold">Review your pieces before you make them yours.</p>
+                </div>
+                <div class="bg-white/40 p-6 sm:p-8 rounded-3xl border border-[#641f2a]/10 mb-8">
+                    <div class="grid grid-cols-12 text-xs uppercase font-bold text-[#641f2a]/70 border-b border-[#641f2a]/15 pb-3 mb-6">
+                        <div class="col-span-6">PRODUCT</div>
+                        <div class="col-span-3 text-center">QUANTITY</div>
+                        <div class="col-span-3 text-right">PRICE</div>
+                    </div>
+                    <div id="full-cart-items-container" class="space-y-6"></div>
+                </div>
+                <div class="bg-[#f4ede2]/60 p-8 rounded-3xl border border-[#641f2a]/10 max-w-xl mx-auto space-y-4">
+                    <h2 class="font-serif text-lg font-bold text-[#641f2a] text-center uppercase tracking-wider mb-4">ORDER SUMMARY</h2>
+                    <div class="flex justify-between text-xs sm:text-sm font-semibold text-[#000000] border-b border-[#641f2a]/10 pb-3">
+                        <span id="full-cart-items-label">Subtotal (0 items)</span>
+                        <span id="full-cart-subtotal" class="font-bold text-[#641f2a]">₹ 0</span>
+                    </div>
+                    <div class="flex justify-between text-xs sm:text-sm font-semibold text-[#000000] border-b border-[#641f2a]/10 pb-3">
+                        <span>Shipping</span>
+                        <span class="font-bold text-[#641f2a]">FREE</span>
+                    </div>
+                    <div class="flex justify-between text-sm sm:text-base font-bold text-[#641f2a] pt-1">
+                        <span>Total</span>
+                        <span id="full-cart-total">₹ 0</span>
+                    </div>
+                    <button onclick="proceedToCheckout()" class="w-full mt-6 py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        CHECKOUT
+                    </button>
+                </div>
+            </div>`;
+        }
+
+        function renderFullCartPage() {
+            const container = document.getElementById('full-cart-items-container');
+            if(!container) return;
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-xs text-[#641f2a]/60 py-8">Your cart is currently empty.</p>`;
+                document.getElementById('full-cart-subtotal').innerText = '₹ 0';
+                document.getElementById('full-cart-total').innerText = '₹ 0';
+                document.getElementById('full-cart-items-label').innerText = 'Subtotal (0 items)';
+                return;
+            }
+            let html = '';
+            let subtotal = 0;
+            let totalQty = 0;
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.qty;
+                totalQty += item.qty;
+                html += `
+                    <div class="grid grid-cols-12 items-center gap-4 border-b border-[#641f2a]/10 pb-6">
+                        <div class="col-span-6 flex items-center gap-4">
+                            <img src="${item.img}" class="w-20 h-24 object-cover rounded-2xl bg-[#f4ede2] flex-shrink-0 cursor-pointer" onclick="openQuickViewById('${item.id}')">
+                            <div>
+                                <h4 class="font-serif font-bold text-[#641f2a] text-sm sm:text-base">${item.name}</h4>
+                                <p class="text-[11px] text-[#000000] font-semibold mt-0.5">${item.tag || ('Size: ' + item.size)}</p>
+                                <button onclick="removeFromCart(${index})" class="text-[11px] text-[#641f2a] font-bold hover:underline mt-2 inline-block">Remove</button>
+                            </div>
+                        </div>
+                        <div class="col-span-3 flex justify-center">
+                            <div class="flex items-center border border-[#641f2a]/30 rounded-xl px-3 py-1.5 text-xs bg-white">
+                                <button onclick="updateCartQty(${index}, -1)" class="px-1 font-bold">-</button>
+                                <span class="px-3 font-semibold">${item.qty}</span>
+                                <button onclick="updateCartQty(${index}, 1)" class="px-1 font-bold">+</button>
+                            </div>
+                        </div>
+                        <div class="col-span-3 text-right font-bold text-[#641f2a] text-sm sm:text-base">
+                            ₹${(item.price * item.qty).toLocaleString()}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            document.getElementById('full-cart-subtotal').innerText = '₹ ' + subtotal.toLocaleString();
+            document.getElementById('full-cart-total').innerText = '₹ ' + subtotal.toLocaleString();
+            document.getElementById('full-cart-items-label').innerText = `Subtotal (${totalQty} items)`;
+        }
+
+        function pageContentHTML_Wishlist() {
+            return `
+            <div class="max-w-5xl mx-auto px-4 py-12 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold text-center">Home / <span class="text-[#641f2a]">Wishlist</span></p>
+                <div class="text-center mb-12">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">WISHLIST</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-semibold">The pieces you've saved for later.</p>
+                </div>
+                <div id="full-wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>`;
+        }
+
+        function renderFullWishlistPage() {
+            const grid = document.getElementById('full-wishlist-grid');
+            if(!grid) return;
+            if (wishlist.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-xs text-[#641f2a]/60 py-12">Your wishlist is currently empty.</p>`;
+                return;
+            }
+            grid.innerHTML = wishlist.map(id => {
+                const p = getProduct(id);
+                if (!p) return '';
+                return `
+                    <div class="bg-[#f4ede2] rounded-3xl p-5 shadow-sm relative flex flex-col product-card-3d">
+                        <button onclick="toggleWishlistItem('${p.id}')" class="absolute top-8 right-8 text-[#641f2a] text-base z-10 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow"><i class="fa-solid fa-heart text-red-700"></i></button>
+                        <div class="h-96 rounded-2xl overflow-hidden bg-white mb-4 cursor-pointer" onclick="openQuickViewById('${p.id}')">
+                            <img src="${p.img}" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-serif font-bold text-base text-[#641f2a] mb-1">${p.name}</h3>
+                        <p class="text-[11px] text-[#000000] font-semibold mb-3">${p.tag || p.category}</p>
+                        <div class="flex items-center justify-between mt-auto pt-2">
+                            <span class="font-bold text-[#641f2a] text-sm">₹${p.price.toLocaleString()}</span>
+                            <button onclick="addToCartById('${p.id}'); toggleWishlistItem('${p.id}');" class="bg-[#641f2a] text-white px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#4a1720] transition-colors cursor-pointer">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function pageContentHTML_Gift() {
+            return `
+            <div class="max-w-4xl mx-auto px-4 py-8 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / Gift Cards</p>
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-3">THE SHRIVI GIFT CARD</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed">A Shrivi Creations Gift Card lets someone special discover handmade crochet pieces made to be worn, loved and kept.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-[#f4ede2]/50 border border-[#641f2a]/15 rounded-3xl p-6 sm:p-10 mb-8 shadow-sm">
+                    <div class="md:col-span-6 space-y-4 text-left">
+                        <h3 class="font-serif italic text-xl sm:text-2xl text-[#641f2a]">A gift made to be loved</h3>
+                        <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed">
+                            Give them the freedom to choose something truly their own. Because the best gifts aren't always the ones you choose for them — they're the ones that let them choose for themselves.
+                        </p>
+                        <div class="pt-4">
+                            <button onclick="openPage('gift-builder')" class="px-8 py-3.5 bg-[#641f2a] text-white rounded-full text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#4a1720] transition-all shadow-md cursor-pointer inline-flex items-center gap-2">
+                                <span>SHOP GIFT CARDS</span> <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="md:col-span-6">
+                        <div class="w-full rounded-2xl overflow-hidden shadow-xl bg-white border border-[#641f2a]/10 p-2">
+                            <img src="assets/ChatGPT Image Sep 21, 2026, 02_56_13 PM.png" alt="Gift Card Preview" class="w-full h-auto object-cover rounded-xl max-h-[320px]">
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function pageContentHTML_GiftBuilder() {
+            return `
+            <div class="max-w-5xl mx-auto px-4 py-8 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / Gift Cards</p>
+               
+                <div class="text-center max-w-xl mx-auto mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">GIVE THE GIFT OF CHOICE</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal">Something thoughtful, made personal</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div>
+                            <h3 class="font-serif text-xs font-bold tracking-[0.15em] uppercase text-[#641f2a] mb-3">CHOOSE A GIFT CARD</h3>
+                            <div class="grid grid-cols-4 gap-2 mb-3">
+                                <button onclick="setGiftVal(1000, this)" class="gift-amt-btn py-2.5 rounded-xl border border-[#641f2a]/30 text-xs font-bold text-[#641f2a] hover:bg-[#641f2a] hover:text-white transition-colors cursor-pointer">₹1,000</button>
+                                <button onclick="setGiftVal(2000, this)" class="gift-amt-btn py-2.5 rounded-xl border border-[#641f2a] bg-[#641f2a]/10 text-xs font-bold text-[#641f2a] transition-colors cursor-pointer">₹2,000</button>
+                                <button onclick="setGiftVal(3000, this)" class="gift-amt-btn py-2.5 rounded-xl border border-[#641f2a]/30 text-xs font-bold text-[#641f2a] hover:bg-[#641f2a] hover:text-white transition-colors cursor-pointer">₹3,000</button>
+                                <button onclick="setGiftVal(4000, this)" class="gift-amt-btn py-2.5 rounded-xl border border-[#641f2a]/30 text-xs font-bold text-[#641f2a] hover:bg-[#641f2a] hover:text-white transition-colors cursor-pointer">₹4,000</button>
+                            </div>
+                            <input type="text" id="gift-custom-amount" oninput="updateGiftPreview()" placeholder="CUSTOM AMOUNT" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 uppercase tracking-wider focus:outline-none">
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-xs font-bold tracking-[0.15em] uppercase text-[#641f2a] mb-3">WHO IS IT FOR?</h3>
+                            <div class="space-y-3">
+                                <input type="text" id="gift-recipient-name" oninput="updateGiftPreview()" required placeholder="RECIPIENT'S NAME" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 uppercase tracking-wider focus:outline-none">
+                                <input type="email" id="gift-recipient-email" required placeholder="RECIPIENT'S EMAIL" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 uppercase tracking-wider focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-xs font-bold tracking-[0.15em] uppercase text-[#641f2a] mb-3">MAKE IT PERSONAL</h3>
+                            <textarea id="gift-message" oninput="updateGiftPreview()" rows="3" placeholder="Write a little something..." class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 uppercase tracking-wider resize-none focus:outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <h3 class="font-serif text-xs font-bold tracking-[0.15em] uppercase text-[#641f2a] mb-3">WHEN SHOULD THEY RECEIVE IT?</h3>
+                            <div class="flex gap-6 text-xs font-semibold text-[#000000] mb-2">
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="delivery-time" checked class="accent-[#641f2a]"> Send now</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="delivery-time" class="accent-[#641f2a]"> Schedule for later</label>
+                            </div>
+                            <p class="text-[11px] italic text-[#641f2a]/70 font-serif">The gift card will be delivered to the recipient by email after purchase.</p>
+                        </div>
+
+                        <button onclick="addGiftCardToCart()" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-4">
+                            ADD GIFT CARD TO BAG
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-5 sticky top-24">
+                        <h3 class="font-serif text-xs font-bold tracking-[0.15em] uppercase text-[#641f2a] mb-3">YOUR GIFT CARD</h3>
+                        <div class="bg-white/70 border border-[#641f2a]/20 rounded-3xl p-6 shadow-sm space-y-6 text-left">
+                            <div class="flex justify-between items-center border-b border-[#641f2a]/10 pb-4">
+                                <span class="font-serif text-xs uppercase text-[#641f2a]/70 font-bold">Value</span>
+                                <span id="preview-value" class="font-serif text-base font-bold text-[#641f2a]">₹2,000</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-[#641f2a]/10 pb-4">
+                                <span class="font-serif text-xs uppercase text-[#641f2a]/70 font-bold">For</span>
+                                <span id="preview-name" class="font-serif text-sm font-semibold text-[#641f2a]">Recipient's Name</span>
+                            </div>
+                            <div class="space-y-1 border-b border-[#641f2a]/10 pb-4">
+                                <span class="font-serif text-xs uppercase text-[#641f2a]/70 font-bold block">Message</span>
+                                <p id="preview-message" class="font-serif text-xs italic text-[#000000]">A little something for you. Hope you find something you love.</p>
+                            </div>
+                            <p class="text-center font-serif text-xs text-[#641f2a]/60 uppercase tracking-widest pt-2">GIFTS THAT FEEL PERSONAL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        let selectedGiftValue = 2000;
+        function setGiftVal(val, btn) {
+            selectedGiftValue = val;
+            document.querySelectorAll('.gift-amt-btn').forEach(b => {
+                b.className = "gift-amt-btn py-2.5 rounded-xl border border-[#641f2a]/30 text-xs font-bold text-[#641f2a] hover:bg-[#641f2a] hover:text-white transition-colors cursor-pointer";
+            });
+            btn.className = "gift-amt-btn py-2.5 rounded-xl border border-[#641f2a] bg-[#641f2a]/10 text-xs font-bold text-[#641f2a] transition-colors cursor-pointer";
+            document.getElementById('gift-custom-amount').value = '';
+            updateGiftPreview();
+        }
+
+        function updateGiftPreview() {
+            const customVal = document.getElementById('gift-custom-amount').value.trim();
+            const val = customVal ? parseInt(customVal) || selectedGiftValue : selectedGiftValue;
+            document.getElementById('preview-value').innerText = '₹' + val.toLocaleString();
+
+            const name = document.getElementById('gift-recipient-name').value.trim();
+            document.getElementById('preview-name').innerText = name || "Recipient's Name";
+
+            const msg = document.getElementById('gift-message').value.trim();
+            document.getElementById('preview-message').innerText = msg || "A little something for you. Hope you find something you love.";
+        }
+
+        function addGiftCardToCart() {
+            const name = document.getElementById('gift-recipient-name').value.trim();
+            const email = document.getElementById('gift-recipient-email').value.trim();
+            if (!name || !email) {
+                showToast('Please enter recipient name and email');
+                return;
+            }
+            const customVal = document.getElementById('gift-custom-amount').value.trim();
+            const val = customVal ? parseInt(customVal) || selectedGiftValue : selectedGiftValue;
+
+            cart.push({
+                id: 'GC' + Date.now().toString().slice(-4),
+                name: 'Shrivi Gift Card (For ' + name + ')',
+                price: val,
+                img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png',
+                tag: 'Digital Gift Card · To: ' + email,
+                size: 'Digital',
+                qty: 1
+            });
+            saveJSON('shrivi_cart', cart);
+            updateCounters();
+            showToast('Gift Card added to shopping bag!');
+            openPage('cart');
+        }
+
+        function pageContentHTML_Track() {
+            return `
+            <div class="max-w-4xl mx-auto px-4 py-12 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / <span class="text-[#641f2a]">Track your Order</span></p>
+                <div class="max-w-2xl mx-auto mb-12">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold uppercase tracking-wider mb-3 text-[#641f2a]">TRACK YOUR ORDER</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-semibold">Follow your Shrivi piece from our hands to your doorstep.</p>
+                </div>
+                <div class="max-w-xl mx-auto space-y-6">
+                    <div class="bg-white/60 border border-[#641f2a]/20 rounded-2xl p-4 text-left shadow-sm">
+                        <input type="text" placeholder="Enter your order number" class="w-full bg-transparent text-[#641f2a] placeholder-[#641f2a]/60 text-sm sm:text-base font-serif focus:outline-none">
+                    </div>
+                    <div class="bg-white/60 border border-[#641f2a]/20 rounded-2xl p-4 text-left shadow-sm">
+                        <input type="email" placeholder="Enter the email address used for your order" class="w-full bg-transparent text-[#641f2a] placeholder-[#641f2a]/60 text-sm sm:text-base font-serif focus:outline-none">
+                    </div>
+                    <button onclick="showToast('Searching order details...')" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        TRACK ORDER
+                    </button>
+                    <p class="text-[11px] italic text-[#641f2a]/70 font-serif pt-2">Your order number can be found in your order confirmation email.</p>
+                </div>
+            </div>`;
+        }
+
+        function pageContentHTML_Work() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / Work with Us</p>
+               
+                <div class="mb-6">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-3">MAKE WITH SHRIVI</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed max-w-xl mx-auto">
+                        We're looking for skilled crochet makers who love turning yarn patterns and ideas into beautiful handmade pieces.
+                    </p>
+                </div>
+
+                <div class="text-left space-y-6 mb-10 text-xs sm:text-sm text-[#000000] leading-relaxed">
+                    <div>
+                        <h2 class="font-serif text-base sm:text-lg font-bold tracking-[0.1em] uppercase text-[#641f2a] mb-2">YOUR CRAFT. OUR VISION.</h2>
+                        <p class="mb-2"><strong>Shrivi Creations</strong> is built around the beauty of handmade crochet. As we grow, we're looking to work with skilled makers who can help us bring our designs to life.</p>
+                        <p class="mb-2">From crochet tops and cardigans to bags and future collections, we're looking for people who take pride in their craft, care about detail and enjoy creating pieces with patience and precision.</p>
+                        <p>Whether you work independently from home or have experience creating crochet pieces professionally, we'd love to discover your work.</p>
+                    </div>
+
+                    <div>
+                        <h2 class="font-serif text-base sm:text-lg font-bold tracking-[0.1em] uppercase text-[#641f2a] mb-3">WHAT WE'RE LOOKING FOR MAKERS WHO...</h2>
+                        <ul class="space-y-2">
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>KNOW THEIR CRAFT :</strong> Comfortable with crochet techniques, consistent stitches, tension and construction.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>CARE ABOUT DETAILS :</strong> Neat finishing, clean edges and attention to small details matter.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>CAN FOLLOW A DESIGN :</strong> Able to work from references, patterns, measurements and specific product requirements.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>VALUE QUALITY :</strong> Patient enough to create pieces carefully rather than prioritising speed over finish.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="font-serif text-base sm:text-lg font-bold tracking-[0.1em] uppercase text-[#641f2a] mb-3">HOW WE WORK</h2>
+                        <ul class="space-y-2">
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>SHARE :</strong> We share the design, measurements and requirements.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>CREATE :</strong> You bring the design to life through your craft.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>REVIEW :</strong> We check the finished piece for quality, construction and details.</li>
+                            <li><i class="fa-solid fa-square text-[8px] mr-2 text-[#641f2a]"></i><strong>REFINE :</strong> We discuss any adjustments needed before the final piece.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mb-8">
+                    <h2 class="font-serif text-2xl sm:text-3xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">LET'S WORK TOGETHER</h2>
+                    <p class="text-xs text-[#000000] font-normal">Think your craft could be a good fit for Shrivi?<br>We'd love to see what you make.</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); showToast('Your application has been submitted successfully!');" class="space-y-4 max-w-xl mx-auto text-left">
+                    <div>
+                        <input type="text" required placeholder="FULL NAME" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="email" required placeholder="EMAIL ADDRESS" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="tel" required placeholder="CONTACT NUMBER" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="text" required placeholder="CITY/LOCATION" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="text" required placeholder="YEARS OF CROCHET EXPERIENCE" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <textarea rows="3" required placeholder="TELL US ABOUT YOUR CRAFT" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider resize-none"></textarea>
+                    </div>
+                    <div class="pt-2">
+                        <label class="block font-serif text-xs font-bold uppercase text-[#641f2a] mb-2">WHAT CAN YOU MAKE?</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-[#000000]">
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> TOPS</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> CARDIGANS</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> BAGS</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-[#641f2a]"> OTHER CROCHET PRODUCTS</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full mt-4 py-4 bg-[#641f2a] text-white rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer text-center">
+                        SUBMIT
+                    </button>
+                </form>
+            </div>`;
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            currentUser = { firstName: 'SHIVI', lastName: 'GAMBHIR', email: email, phone: '89502*****' };
+            saveJSON('shrivi_current_user', currentUser);
+            showToast('Logged in successfully!');
+            openPage('account');
+        }
+
+        function handleRegisterSubmit(e) {
+            e.preventDefault();
+            const fName = document.getElementById('reg-fname').value.toUpperCase();
+            const lName = document.getElementById('reg-lname').value.toUpperCase();
+            const email = document.getElementById('reg-email').value;
+            const phone = document.getElementById('reg-phone').value;
+            currentUser = { firstName: fName, lastName: lName, email: email, phone: phone };
+            saveJSON('shrivi_current_user', currentUser);
+            showToast('Account created successfully!');
+            openPage('account');
+        }
+
+        function pageContentHTML_Login() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / Login</p>
+               
+                <div class="max-w-lg mx-auto mb-8">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">LOGIN</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed">
+                        Sign in to your Shrivi Creations account to view your orders,<br>manage your details and keep track of your favourite pieces.
+                    </p>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-6">
+                    <div class="font-serif text-base sm:text-lg font-normal tracking-[0.1em] uppercase text-[#641f2a] flex items-center justify-center gap-2">
+                        <span>WELCOME BACK</span> <span>♥</span>
+                    </div>
+
+                    <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                        <div>
+                            <input id="login-email" type="email" required placeholder="YOUR EMAIL" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <div>
+                            <input type="password" required placeholder="PASSWORD" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-[#641f2a] text-white rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#4a1720] transition-colors cursor-pointer shadow-md">
+                            LOG IN
+                        </button>
+                    </form>
+
+                    <div class="pt-2">
+                        <a href="#" onclick="openPage('create-account'); return false;" class="font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] underline hover:text-[#4a1720]">
+                            NEW TO SHRIVI? CREATE YOUR ACCOUNT
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function pageContentHTML_CreateAccount() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / Create Account</p>
+               
+                <div class="max-w-lg mx-auto mb-8">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">CREATE ACCOUNT</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed">
+                        Create an account to make checkout easier, view your<br>orders and save your favourite pieces for later.
+                    </p>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-6">
+                    <div class="font-serif text-base sm:text-lg font-normal tracking-[0.1em] uppercase text-[#641f2a] flex items-center justify-center gap-2">
+                        <span>START YOUR SHRIVI JOURNEY</span> <span>♥</span>
+                    </div>
+
+                    <form onsubmit="handleRegisterSubmit(event)" class="space-y-4">
+                        <div>
+                            <input id="reg-fname" type="text" required placeholder="FIRST NAME" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <div>
+                            <input id="reg-lname" type="text" placeholder="LAST NAME (OPTIONAL)" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <div>
+                            <input id="reg-email" type="email" required placeholder="EMAIL ADDRESS" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <div>
+                            <input id="reg-phone" type="tel" required placeholder="CONTACT NUMBER" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <div>
+                            <input type="password" required placeholder="PASSWORD" class="w-full bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider text-center">
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-[#641f2a] text-white rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#4a1720] transition-colors cursor-pointer shadow-md">
+                            CREATE ACCOUNT
+                        </button>
+                    </form>
+
+                    <div class="pt-2">
+                        <a href="#" onclick="openPage('login'); return false;" class="font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] underline hover:text-[#4a1720]">
+                            ALREADY HAVE AN ACCOUNT? LOG IN
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        /* ----------------------- Fully Functional My Account Views ----------------------- */
+        function handleUpdateProfile(e) {
+            e.preventDefault();
+            currentUser.firstName = document.getElementById('prof-fname').value.toUpperCase();
+            currentUser.lastName = document.getElementById('prof-lname').value.toUpperCase();
+            currentUser.email = document.getElementById('prof-email').value;
+            currentUser.phone = document.getElementById('prof-phone').value;
+            saveJSON('shrivi_current_user', currentUser);
+            showToast('Changes saved successfully!');
+            openPage('account');
+        }
+
+        function pageContentHTML_AccountEditProfile() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / My Account</p>
+               
+                <div class="max-w-lg mx-auto mb-6">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">WELCOME ${currentUser.firstName}</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal">Your Shrivi space, all in one place.</p>
+                </div>
+
+                <div class="flex justify-center gap-8 sm:gap-16 mb-12 text-xs sm:text-sm font-serif font-normal tracking-[0.15em] uppercase border-b border-[#641f2a]/20 pb-4">
+                    <span class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer font-bold">EDIT PROFILE</span>
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('orders')">ORDERS</span>
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('addresses')">ADDRESSES</span>
+                </div>
+
+                <div class="max-w-xl mx-auto mb-8">
+                    <h2 class="font-serif text-xl sm:text-2xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-6">PERSONAL INFORMATION</h2>
+                </div>
+
+                <form onsubmit="handleUpdateProfile(event)" class="max-w-xl mx-auto space-y-6 text-left">
+                    <div>
+                        <label class="block font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] mb-2">FIRST NAME</label>
+                        <div class="relative flex items-center bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3">
+                            <input id="prof-fname" type="text" value="${currentUser.firstName}" class="w-full bg-transparent text-xs text-[#641f2a] focus:outline-none uppercase tracking-wider font-semibold">
+                            <i class="fa-solid fa-pen text-xs text-[#641f2a]/70 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] mb-2">LAST NAME</label>
+                        <div class="relative flex items-center bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3">
+                            <input id="prof-lname" type="text" value="${currentUser.lastName || ''}" class="w-full bg-transparent text-xs text-[#641f2a] focus:outline-none uppercase tracking-wider font-semibold">
+                            <i class="fa-solid fa-pen text-xs text-[#641f2a]/70 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] mb-2">EMAIL</label>
+                        <div class="relative flex items-center bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3">
+                            <input id="prof-email" type="email" value="${currentUser.email}" class="w-full bg-transparent text-xs text-[#641f2a] focus:outline-none tracking-wider font-semibold">
+                            <i class="fa-solid fa-pen text-xs text-[#641f2a]/70 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] mb-2">CONTACT NUMBER</label>
+                        <div class="relative flex items-center bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3">
+                            <input id="prof-phone" type="text" value="${currentUser.phone}" class="w-full bg-transparent text-xs text-[#641f2a] focus:outline-none tracking-wider font-semibold">
+                            <i class="fa-solid fa-pen text-xs text-[#641f2a]/70 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-serif text-xs sm:text-sm font-normal tracking-[0.12em] uppercase text-[#641f2a] mb-2">PASSWORD</label>
+                        <div class="relative flex items-center bg-transparent border border-[#641f2a]/30 rounded-lg px-4 py-3">
+                            <input type="password" value="********" class="w-full bg-transparent text-xs text-[#641f2a] focus:outline-none tracking-wider font-semibold">
+                            <i class="fa-solid fa-pen text-xs text-[#641f2a]/70 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 space-y-3">
+                        <button type="submit" class="w-full py-3.5 bg-[#641f2a] text-white rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#4a1720] transition-colors cursor-pointer shadow-md text-center">
+                            SAVE CHANGES
+                        </button>
+                        <button type="button" onclick="openPage('login'); showToast('Logged out successfully');" class="w-full py-3.5 bg-transparent border border-[#641f2a]/40 text-[#641f2a] rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#641f2a]/10 transition-colors cursor-pointer text-center">
+                            LOG OUT
+                        </button>
+                    </div>
+                </form>
+            </div>`;
+        }
+
+        function pageContentHTML_AccountOrders() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / My Account</p>
+               
+                <div class="max-w-lg mx-auto mb-6">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">WELCOME ${currentUser.firstName}</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal">Your Shrivi space, all in one place.</p>
+                </div>
+
+                <div class="flex justify-center gap-8 sm:gap-16 mb-12 text-xs sm:text-sm font-serif font-normal tracking-[0.15em] uppercase border-b border-[#641f2a]/20 pb-4">
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('account')">EDIT PROFILE</span>
+                    <span class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer font-bold">ORDERS</span>
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('addresses')">ADDRESSES</span>
+                </div>
+
+                <div class="max-w-2xl mx-auto space-y-6 text-left">
+                    <div class="bg-white/70 border border-[#641f2a]/20 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                        <div class="space-y-1.5">
+                            <h3 class="font-serif font-bold text-lg text-[#641f2a]">ORDER #SC1024</h3>
+                            <p class="text-xs text-[#000000] font-semibold">Placed on 18 September 2026</p>
+                            <p class="font-bold text-sm text-[#641f2a]">The Rose Patchwork Crochet Cardigan</p>
+                            <p class="text-xs text-[#000000]">Quantity : 1</p>
+                            <p class="font-bold text-sm text-[#641f2a]">Rs. 2,499</p>
+                            <div class="flex flex-wrap items-center gap-2 pt-2 text-[10px] sm:text-xs font-bold uppercase tracking-wide text-[#641f2a]">
+                                <span>ORDER CONFIRMED <i class="fa-solid fa-square-check text-green-600"></i></span> &rarr;
+                                <span>PACKED <i class="fa-solid fa-square-check text-green-600"></i></span> &rarr;
+                                <span>SHIPPED <i class="fa-solid fa-square-check text-green-600"></i></span> &rarr;
+                                <span>DELIVERED <i class="fa-solid fa-square-check text-green-600"></i></span>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-36 h-40 rounded-2xl overflow-hidden bg-[#f4ede2] flex-shrink-0">
+                            <img src="assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-xl mx-auto pt-8">
+                    <button type="button" onclick="openPage('login'); showToast('Logged out successfully');" class="w-full py-3.5 bg-transparent border border-[#641f2a]/40 text-[#641f2a] rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#641f2a]/10 transition-colors cursor-pointer text-center">
+                        LOG OUT
+                    </button>
+                </div>
+            </div>`;
+        }
+
+        function removeAddress(id) {
+            userAddresses = userAddresses.filter(a => a.id !== id);
+            saveJSON('shrivi_addresses', userAddresses);
+            showToast('Address removed successfully');
+            openPage('addresses');
+        }
+
+        function openAddAddressModal() {
+            const m = document.getElementById('add-address-modal');
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+        }
+
+        function closeAddAddressModal() {
+            const m = document.getElementById('add-address-modal');
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+        }
+
+        function handleAddNewAddress(e) {
+            e.preventDefault();
+            const name = document.getElementById('new-addr-name').value;
+            const line = document.getElementById('new-addr-line').value;
+            const cityState = document.getElementById('new-addr-city-state').value;
+            const phone = document.getElementById('new-addr-phone').value;
+
+            userAddresses.push({ id: Date.now(), name, line, cityState, phone });
+            saveJSON('shrivi_addresses', userAddresses);
+            closeAddAddressModal();
+            showToast('New address added successfully!');
+            openPage('addresses');
+        }
+
+        function pageContentHTML_AccountAddresses() {
+            let addrHtml = userAddresses.map(addr => `
+                <div class="max-w-xl mx-auto bg-white/70 border border-[#641f2a]/20 rounded-3xl p-6 sm:p-8 shadow-sm text-left relative mb-6">
+                    <div class="absolute top-6 right-6 font-serif text-xs font-bold tracking-widest text-[#641f2a] uppercase space-x-1">
+                        <span class="cursor-pointer hover:underline" onclick="showToast('Edit mode active for ${addr.name}')">EDIT</span> | 
+                        <span class="cursor-pointer hover:underline text-red-700" onclick="removeAddress(${addr.id})">REMOVE</span>
+                    </div>
+                    <div class="space-y-1 text-sm sm:text-base font-serif text-[#641f2a]">
+                        <p class="font-bold text-base sm:text-lg">${addr.name}</p>
+                        <p>${addr.line}</p>
+                        <p>${addr.cityState}</p>
+                        <p class="pt-2 font-sans font-semibold">${addr.phone}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            if (userAddresses.length === 0) {
+                addrHtml = `<div class="max-w-xl mx-auto bg-white/70 border border-[#641f2a]/20 rounded-3xl p-6 text-center text-xs text-[#641f2a]/60 mb-6">No saved shipping addresses found.</div>`;
+            }
+
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-center">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold text-left">Home / My Account</p>
+               
+                <div class="max-w-lg mx-auto mb-6">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">WELCOME ${currentUser.firstName}</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal">Your Shrivi space, all in one place.</p>
+                </div>
+
+                <div class="flex justify-center gap-8 sm:gap-16 mb-12 text-xs sm:text-sm font-serif font-normal tracking-[0.15em] uppercase border-b border-[#641f2a]/20 pb-4">
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('account')">EDIT PROFILE</span>
+                    <span class="text-[#641f2a]/60 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="openPage('orders')">ORDERS</span>
+                    <span class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer font-bold">ADDRESSES</span>
+                </div>
+
+                <div class="max-w-xl mx-auto mb-6">
+                    <h2 class="font-serif text-xl sm:text-2xl font-normal tracking-[0.15em] uppercase text-[#641f2a]">SAVED SHIPPING ADDRESSES</h2>
+                </div>
+
+                ${addrHtml}
+
+                <div class="max-w-xl mx-auto space-y-4">
+                    <button onclick="openAddAddressModal()" class="w-full py-4 bg-[#641f2a] text-white rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        + ADD NEW ADDRESS
+                    </button>
+                    <button type="button" onclick="openPage('login'); showToast('Logged out successfully');" class="w-full py-3.5 bg-transparent border border-[#641f2a]/40 text-[#641f2a] rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#641f2a]/10 transition-colors cursor-pointer text-center">
+                        LOG OUT
+                    </button>
+                </div>
+            </div>`;
+        }
+
+        /* ----------------------- Contact Us Page ----------------------- */
+        function pageContentHTML_Contact() {
+            return `
+            <div class="max-w-3xl mx-auto px-4 py-8 font-sans text-[#641f2a] text-left">
+                <p class="text-xs tracking-[0.1em] uppercase text-[#641f2a]/70 mb-8 font-bold">Home / Contact Us</p>
+               
+                <div class="text-center mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-3">CONTACT US</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed max-w-lg mx-auto">
+                        We'd love to hear from you.<br>
+                        Whether you have a question about a product, need help with your order, or simply want to know more about Shrivi Creations, we're here to help.
+                    </p>
+                </div>
+
+                <div class="mb-10 space-y-4">
+                    <h2 class="font-serif text-lg sm:text-xl font-normal tracking-[0.12em] uppercase text-[#641f2a]">HOW TO REACH US ?</h2>
+                    <div class="text-xs sm:text-sm text-[#000000] font-normal space-y-1">
+                        <p><strong>Email :</strong> shrivicreations@gmail.com</p>
+                        <p><strong>Phone/WhatsApp :</strong> +91 9779242755</p>
+                        <p><strong>Instagram :</strong> @shrivi_creations</p>
+                    </div>
+                </div>
+
+                <div class="mb-12 space-y-3">
+                    <h2 class="font-serif text-lg sm:text-xl font-normal tracking-[0.12em] uppercase text-[#641f2a]">CUSTOMER SUPPORT HOURS</h2>
+                    <div class="text-xs sm:text-sm text-[#000000] font-normal space-y-2">
+                        <p>Monday &ndash; Saturday<br>10:00 AM &ndash; 6:00 PM IST</p>
+                        <p>For order-related queries, please include your order number along with your message so we can assist you more quickly.</p>
+                        <p>For questions about sizing, product availability, shipping we're happy to help.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-8">
+                    <h2 class="font-serif text-2xl sm:text-3xl font-normal tracking-[0.15em] uppercase text-[#641f2a] mb-2">GET IN TOUCH</h2>
+                    <p class="text-xs text-[#000000] font-normal">Tell us what you're looking for and we'll take it from there.</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); showToast('Your message has been sent successfully!');" class="space-y-4 max-w-xl mx-auto">
+                    <div>
+                        <input type="text" required placeholder="YOUR NAME" class="w-full bg-white/60 border border-[#641f2a]/20 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="email" required placeholder="YOUR EMAIL ADDRESS" class="w-full bg-white/60 border border-[#641f2a]/20 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="ORDER NUMBER(OPTIONAL)" class="w-full bg-white/60 border border-[#641f2a]/20 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider">
+                    </div>
+                    <div>
+                        <textarea rows="4" required placeholder="HOW CAN WE HELP?" class="w-full bg-white/60 border border-[#641f2a]/20 rounded-lg px-4 py-3 text-xs text-[#641f2a] placeholder-[#641f2a]/60 focus:outline-none uppercase tracking-wider resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-[#641f2a] text-white rounded-lg text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer">
+                        SUBMIT
+                    </button>
+                    <p class="text-center text-[11px] italic text-[#641f2a]/70 font-serif pt-2">Made with care. Here to help</p>
+                </form>
+            </div>`;
+        }
+
+        /* ----------------------- Blog section with cinematic full-article reader ----------------------- */
+        function pageContentHTML_Blog() {
+            return `
+            <style>
+                .blog-card-3d { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); transform: perspective(1000px) rotateX(0deg) rotateY(0deg); background-color: transparent !important; box-shadow: none !important; border: none !important; }
+                .blog-card-3d:hover { transform: perspective(1000px) translateY(-4px) rotateX(1deg) rotateY(-1deg); }
+            </style>
+            <div class="max-w-5xl mx-auto px-4 py-12 font-sans text-[#641f2a]">
+                <p class="text-xs tracking-[0.25em] uppercase text-[#641f2a]/70 mb-2 font-bold text-left">Home / <span class="text-[#641f2a]">Blogs</span></p>
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl sm:text-5xl font-serif font-bold text-[#641f2a] uppercase tracking-wider mb-2">THE SHRIVI JOURNAL</h1>
+                    <p class="text-[#000000] text-xs sm:text-sm font-semibold max-w-lg mx-auto leading-relaxed">A little space for crochet, styling, craftsmanship and the stories behind what we make.</p>
+                    <div class="flex justify-center gap-10 mt-6 border-b border-[#641f2a]/10 pb-4 text-xs uppercase tracking-[0.2em] font-bold">
+                        <span id="tab-style" class="text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer" onclick="switchBlogTab('style')">STYLE & WEAR</span>
+                        <span id="tab-craft" class="text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="switchBlogTab('craft')">THE CRAFT</span>
+                        <span id="tab-care" class="text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer" onclick="switchBlogTab('care')">CARE GUIDE</span>
+                    </div>
+                </div>
+                <div id="blog-content-area" class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12"></div>
+            </div>`;
+        }
+
+        /* ----------------------- Exact Privacy Policies Page ----------------------- */
+        function pageContentHTML_Privacy() {
+            return `
+            <div class="w-full px-6 sm:px-12 lg:px-20 py-12 font-sans text-[#641f2a] text-left">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold">Home / <span class="text-[#641f2a]">Privacy Policies</span></p>
+               
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">PRIVACY POLICIES</h1>
+                    <p class="text-xs text-[#000000] font-semibold leading-relaxed">At Shrivi Creations, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, store and share information when you visit or use our website, place an order, contact us, or otherwise interact with Shrivi Creations.</p>
+                    <p class="text-xs text-[#000000] font-semibold leading-relaxed mt-2">By using our website, you acknowledge the practices described in this Privacy Policy.</p>
+                </div>
+
+                <div class="max-w-5xl mx-auto space-y-6 text-xs sm:text-sm text-[#000000] leading-relaxed">
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">INFORMATION WE COLLECT</h3>
+                        <p class="mb-2">We collect information that is necessary to provide our products and services, process orders and provide customer support.</p>
+                        <p class="font-bold mb-1">Personal Information</p>
+                        <p class="mb-1">Depending on how you interact with us, we may collect :</p>
+                        <ul class="list-disc pl-5 space-y-1 mb-2">
+                            <li>Name</li>
+                            <li>Email address</li>
+                            <li>Mobile/phone number</li>
+                            <li>Billing address</li>
+                            <li>Shipping address</li>
+                            <li>City, state and PIN code</li>
+                            <li>Country</li>
+                            <li>Order and purchase details</li>
+                            <li>Information you provide when contacting customer support</li>
+                        </ul>
+                        <p>We only request information that is reasonably necessary for the relevant purpose.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">Payment Information</h3>
+                        <p class="mb-2">Shrivi Creations does not directly store your complete credit or debit card number, CVV or other sensitive payment credentials on our servers, where payment processing is handled by the payment provider.</p>
+                        <p class="mb-2">When you make a purchase, payment information is processed through our third-party payment service providers.</p>
+                        <p>Your payment information is subject to the privacy policy and security practices of the payment provider you choose to use.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">Information You Provide</h3>
+                        <p class="mb-1">We may collect information that you voluntarily provide when you:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Create or use an account</li>
+                            <li>Place an order</li>
+                            <li>Contact us</li>
+                            <li>Submit an enquiry through our website</li>
+                            <li>Subscribe to our communications</li>
+                            <li>Participate in a promotion or campaign</li>
+                            <li>Interact with us through social media</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">Automatically Collected Information</h3>
+                        <p class="mb-1">When you browse our website, certain technical information may be collected automatically, such as:</p>
+                        <ul class="list-disc pl-5 space-y-1 mb-2">
+                            <li>IP address</li>
+                            <li>Browser type</li>
+                            <li>Device type</li>
+                            <li>Operating system</li>
+                            <li>Pages visited</li>
+                            <li>Time spent on our website</li>
+                            <li>Referring website</li>
+                            <li>Website interaction and usage information</li>
+                        </ul>
+                        <p>This information helps us understand how visitors use our website and improve the shopping experience.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">HOW WE COLLECT INFORMATION</h3>
+                        <p class="font-bold mb-1">Information You Provide Directly</p>
+                        <p class="mb-2">We collect information directly from you when you place an order, create an account, submit a contact form, contact us by email or WhatsApp, or otherwise provide information to us.</p>
+                        <p class="font-bold mb-1">Information Collected Automatically</p>
+                        <p class="mb-2">We may use cookies, analytics tools and similar technologies to understand how visitors use our website, remember preferences and improve website functionality. Where required, we will seek consent or provide appropriate controls for such technologies.</p>
+                        <p class="font-bold mb-1">Information From Third Parties</p>
+                        <p>We may receive limited information from third parties that help us operate our website and provide our services, such as payment providers, delivery partners, ecommerce platforms, analytics providers or social media services.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">HOW WE USE YOUR INFORMATION</h3>
+                        <p class="mb-2">We may use your information for the following purposes:</p>
+                       
+                        <p class="font-bold mb-1">To Process and Fulfil Your Orders</p>
+                        <p class="mb-1">We use your information to:</p>
+                        <ul class="list-disc pl-5 space-y-1 mb-2">
+                            <li>Process purchases</li>
+                            <li>Confirm orders</li>
+                            <li>Arrange payment</li>
+                            <li>Pack and ship products</li>
+                            <li>Provide delivery updates</li>
+                            <li>Process returns, exchanges or refunds</li>
+                        </ul>
+
+                        <p class="font-bold mb-1">To Communicate With You</p>
+                        <p class="mb-2">We may use your contact information to respond to your questions, provide customer support and send important information relating to your orders.</p>
+
+                        <p class="font-bold mb-1">To Improve Our Website and Products</p>
+                        <p class="mb-2">We may analyse information about website usage and customer interactions to improve our website, products, services and overall shopping experience.</p>
+
+                        <p class="font-bold mb-1">For Marketing</p>
+                        <p class="mb-1">Where permitted and where required, we may use your contact information to send you information about:</p>
+                        <ul class="list-disc pl-5 space-y-1 mb-2">
+                            <li>New collections</li>
+                            <li>New products</li>
+                            <li>Offers</li>
+                            <li>Promotions</li>
+                            <li>Brand updates</li>
+                        </ul>
+                        <p class="mb-2">You can choose to opt out of promotional communications.</p>
+
+                        <p class="font-bold mb-1">For Security and Fraud Prevention</p>
+                        <p class="mb-2">We may use information to protect our customers, website and business, detect suspicious activity and help prevent fraud or misuse.</p>
+
+                        <p class="font-bold mb-1">To Comply With Legal Obligations</p>
+                        <p>We may process or retain information where necessary to comply with applicable laws, regulations, legal proceedings or lawful requests from authorities.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">SHARING OF INFORMATION</h3>
+                        <p class="mb-2">We do not sell your personal information. We may share relevant information with trusted service providers when necessary to operate our business and fulfil your orders.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Payment Providers :</strong> To securely process your payments.</li>
+                            <li><strong>Delivery Partners :</strong> To deliver your orders using necessary details such as your name, address and contact number.</li>
+                            <li><strong>Service Providers :</strong> For website hosting, analytics, communication, customer support and order management.</li>
+                            <li><strong>Legal Requirements :</strong> Where required by applicable law or lawful requests from authorities.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">COOKIES & WEBSITE USAGE</h3>
+                        <p class="mb-2">We may use cookies and similar technologies to keep our website functional, remember your preferences, understand website usage and improve your shopping experience.</p>
+                        <p>You can manage cookies through your browser settings.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">DATA SECURITY & RETENTION</h3>
+                        <p class="mb-2">We take reasonable measures to protect your personal information from unauthorised access, misuse, loss or disclosure.</p>
+                        <p>We retain your information only for as long as necessary to process orders, provide our services, maintain required records and comply with applicable laws.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">YOUR RIGHTS & MARKETING</h3>
+                        <p class="mb-2">Subject to applicable law, you may request access to, correction or deletion of your personal information, withdraw consent where applicable, or opt out of promotional communications.</p>
+                        <p>You may still receive essential communications related to your orders, payments or deliveries.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">POLICY UPDATES & GOVERNING LAW</h3>
+                        <p class="mb-2">We may update this Privacy Policy from time to time. The latest version will be published on this page with the updated date.</p>
+                        <p>This Privacy Policy is governed by the applicable laws of India.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">CONTACT US</h3>
+                        <p class="mb-1">For privacy-related questions or requests, please contact:</p>
+                        <p><strong>Shrivi Creations</strong><br>
+                        Email : shrivicreations@gmail.com<br>
+                        Phone/WhatsApp : +91 9779242755</p>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        /* ----------------------- Exact Terms & Conditions Page ----------------------- */
+        function pageContentHTML_Terms() {
+            return `
+            <div class="w-full px-6 sm:px-12 lg:px-20 py-12 font-sans text-[#641f2a] text-left">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold">Home / <span class="text-[#641f2a]">Terms & Conditions</span></p>
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wider mb-2 text-[#641f2a]">TERMS & CONDITIONS</h1>
+                    <p class="text-xs text-[#000000] font-semibold leading-relaxed">Welcome to Shrivi Creations. These Terms & Conditions govern your use of our website and your purchase of products from Shrivi Creations. By using our website or placing an order, you agree to these terms.</p>
+                </div>
+                <div class="max-w-5xl mx-auto space-y-6 text-xs sm:text-sm text-[#000000] leading-relaxed">
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">USE OF OUR WEBSITE</h3>
+                        <p>You agree to use our website only for lawful purposes and genuine purchases. You must provide accurate information when placing an order and must not misuse or interfere with the website.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">PRODUCTS</h3>
+                        <p>Shrivi Creations offers handcrafted crochet products. As each piece is handmade, minor variations in colour, texture, pattern and finish may occur. Product colours may also vary slightly depending on your screen.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">ORDERS & PAYMENT</h3>
+                        <p>By placing an order, you confirm that the information provided is accurate and that you are authorised to make the purchase. All prices are displayed in Indian Rupees (₹). Prices and product availability may change without prior notice.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">SHIPPING & DELIVERY</h3>
+                        <p>Orders are processed and delivered according to our Shipping Policy. Delivery timelines are estimates and may vary due to courier delays or circumstances beyond our control.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">RETURNS & EXCHANGES</h3>
+                        <p>Returns and exchanges are subject to our Returns & Exchanges Policy. Please review the policy before placing an order.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">INTELLECTUAL PROPERTY</h3>
+                        <p>All content on the Shrivi Creations website, including our logo, photographs, product images, text and designs, is owned by or licensed to Shrivi Creations and may not be copied or used without permission.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">CHANGES TO THESE TERMS</h3>
+                        <p>We may update these Terms & Conditions from time to time. The latest version will be published on this page with the updated date.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-1">GOVERNING LAW</h3>
+                        <p>These Terms & Conditions are governed by the laws of India.</p>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        /* ----------------------- Exact Shipping Policy Page ----------------------- */
+        function pageContentHTML_Shipping() {
+            return `
+            <div class="w-full px-6 sm:px-12 lg:px-20 py-12 font-sans text-[#641f2a] text-left">
+                <p class="text-xs tracking-[0.2em] uppercase text-[#641f2a]/70 mb-6 font-bold">Home / <span class="text-[#641f2a]">Shipping Policy</span></p>
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wider mb-3 text-[#641f2a]">SHIPPING POLICY</h1>
+                    <p class="text-xs sm:text-sm text-[#000000] font-normal leading-relaxed">
+                        At Shrivi Creations, every piece is thoughtfully handcrafted and carefully prepared before it makes its way to you. Our shipping policy is designed to keep the process simple and transparent, from placing your order to receiving your piece.
+                    </p>
+                </div>
+
+                <div class="max-w-5xl mx-auto space-y-6 text-xs sm:text-sm text-[#000000] leading-relaxed">
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">ORDER CONFIRMATION</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull; Acknowledgment:</strong> Once your order is successfully placed, you will receive an order confirmation via email with your order details and order number.</li>
+                            <li><strong>&bull; Order Processing:</strong> Each piece is carefully checked and packed before dispatch. As our products are handcrafted, processing times may vary depending on the piece and availability.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">SHIPPING & DELIVERY</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull; Dispatch Notification:</strong> Once your order has been dispatched, you will receive an email with your tracking details.</li>
+                            <li><strong>&bull; Delivery Timeline:</strong> Orders are generally delivered within <strong>5&ndash;7 working days</strong> from the date of dispatch across India.</li>
+                            <li><strong>&bull; Handcrafted Orders:</strong> Certain made-to-order or specially crafted pieces may require additional processing time. Any applicable timeline will be mentioned on the product page.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">SHIPPING CHARGES</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull; Standard Shipping:</strong> We offer <strong>free standard shipping</strong> across India on all orders.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">TRACKING YOUR ORDER</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull; Real-time Updates:</strong> Once your order has been dispatched, you will receive a tracking link via email. You can use the tracking details to follow your shipment until it reaches you.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">DELIVERY DELAYS</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull;</strong> While we work closely with our delivery partners to ensure your order reaches you on time, delivery may occasionally be affected by factors such as weather conditions, public holidays, festivals, remote locations or courier delays.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">ADDRESS & DELIVERY INFORMATION</h3>
+                        <ul class="space-y-2">
+                            <li><strong>&bull;</strong> Please make sure your name, delivery address, PIN code and contact number are entered correctly at checkout. Once an order has been dispatched, changes to the delivery address may not be possible.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif font-bold uppercase text-[#641f2a] text-sm mb-2">CUSTOMER SUPPORT</h3>
+                        <p class="mb-3">For any questions regarding your order, shipping or delivery, please reach out to us at:</p>
+                        <ul class="space-y-1 mb-3">
+                            <li><strong>&bull; Email:</strong> shrivicreations@gmail.com</li>
+                            <li><strong>&bull; Instagram:</strong> @shrivi_creations</li>
+                            <li><strong>&bull; Phone/WhatsApp:</strong> +91 9779242755</li>
+                        </ul>
+                        <p class="italic font-serif text-[#641f2a] font-bold">We carefully pack every Shrivi Creations piece so that it reaches you just as it should be &mdash; made with care, ready to be loved.</p>
+                    </div>
+                </div>
+            </div>`;
+        
+        }
+
+        function openPage(type) {
+            const modal = document.getElementById('subpage-modal');
+            const container = document.getElementById('subpage-content');
+            container.innerHTML = websiteHeaderHTML() + pageContentHTML(type) + websiteFooterHTML();
+            modal.classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            if (type === 'blog') { switchBlogTab('style'); }
+            if (type === 'cart') { renderFullCartPage(); }
+            if (type === 'wishlist') { renderFullWishlistPage(); }
+            if (type === 'gift-builder') { updateGiftPreview(); }
+            if (type === 'account') { /* Renders with live currentUser data */ }
+            if (type === 'orders') { /* Renders with live orders */ }
+            if (type === 'addresses') { /* Renders with live userAddresses */ }
+        }
+        function closePage() {
+            document.getElementById('subpage-modal').classList.add('hidden');
+        }
+
+        function switchBlogTab(category) {
+            const style = document.getElementById('tab-style');
+            const craft = document.getElementById('tab-craft');
+            const care = document.getElementById('tab-care');
+            if (!style) return;
+            [style, craft, care].forEach(el => el.className = "text-[#641f2a]/50 hover:text-[#641f2a] pb-1 cursor-pointer");
+            document.getElementById('tab-' + category).className = "text-[#641f2a] border-b-2 border-[#641f2a] pb-1 cursor-pointer";
+
+            const area = document.getElementById('blog-content-area');
+            const posts = {
+                style: [
+                    ['Vintage Crochet Tank Top with Jeans _ Chic Everyday Outfit.jpeg', 'HOW TO STYLE A CROCHET TOP ?', 'Crochet tops can be the easiest way to bring texture and personality into your wardrobe. Discover how to pair them with denim, tailored trousers, skirts and everyday essentials to create looks that feel effortless, modern and distinctly your own.', 'STYLE & WEAR', 'September 18, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 11_37_07 AM.png', 'THE ART OF LAYERING', 'A crochet cardigan can completely transform a simple outfit. Explore thoughtful ways to layer crochet over tanks, shirts, dresses and everyday basics, creating depth and texture while keeping your look comfortable, balanced and effortlessly refined.', 'STYLE & WEAR', 'September 15, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', 'THE CROCHET BAG EDIT', 'More than an accessory, a crochet bag brings texture and handcrafted character to an outfit. Discover different ways to style crochet bags, relaxed separates and understated outfits that let the bag become the finishing touch.', 'STYLE & WEAR', 'September 12, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 11_32_30 AM.png', 'FIND YOUR CROCHET STYLE', 'Crochet doesn’t have to fit into one particular aesthetic. From relaxed everyday dressing to more expressive, statement-making looks, explore different ways to work crochet into your wardrobe and find combinations that feel natural to your personal style.', 'STYLE & WEAR', 'September 10, 2026']
+                ],
+                craft: [
+                    ['Vintage Crochet Tank Top with Jeans _ Chic Everyday Outfit.jpeg', 'THE ART OF CROCHET: WHAT MAKES A PIECE HANDMADE', 'Crochet is a craft built one stitch at a time. Discover what makes handmade crochet special, from individual stitches and intricate patterns to the texture, detail and subtle variations that give every piece its own character.', 'THE CRAFT', 'September 05, 2026'],
+                    ['assests/ChatGPT Image Sep 19, 2026, 11_37_07 AM.png', 'BEHIND THE STITCH: HOW OUR PIECES COME TOGETHER', 'Every Shrivi piece begins long before it reaches your wardrobe. Follow the journey from yarn and individual stitches to shaping, finishing and the final piece, and discover the craftsmanship behind our handmade crochet clothing and accessories.', 'THE CRAFT', 'September 01, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', 'WHY HANDMADE CROCHET FEELS DIFFERENT', 'There is something personal about wearing something made by hand. Explore the time, patience and craftsmanship behind handmade crochet, and discover why natural variations and thoughtful details make each piece feel uniquely yours.', 'THE CRAFT', 'August 28, 2026']
+                ],
+                care: [
+                    ['Vintage Crochet Tank Top with Jeans _ Chic Everyday Outfit.jpeg', 'HOW TO CARE FOR YOUR CROCHET PIECES', 'From washing and drying to everyday handling, learn how to care for handmade crochet clothing and accessories without compromising their shape, texture or delicate details.', 'CARE GUIDE', 'August 24, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 11_37_07 AM.png', 'HOW TO STORE CROCHET WITHOUT LOSING ITS SHAPE', 'Proper storage helps handmade crochet retain its original shape and texture. Learn how to fold, protect and store crochet tops, cardigans and bags between wears and seasons.', 'CARE GUIDE', 'August 20, 2026'],
+                    ['assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', 'YOUR GUIDE TO KEEPING CROCHET LOOKING NEW', 'A little care can go a long way. Discover simple ways to protect the colour, texture, shape and finish of your crochet pieces and keep them looking beautiful wear after wear.', 'CARE GUIDE', 'August 15, 2026']
+                ]
+            };
+            area.innerHTML = posts[category].map(p => `
+                <div class="blog-card-3d flex flex-col space-y-3 cursor-pointer text-left" onclick="openBlogCinematic('${p[1]}', '${p[4]}', '${p[0]}', '${p[3]}', '${p[2]}')">
+                    <div class="h-80 sm:h-96 rounded-2xl overflow-hidden bg-[#f4ede2] shadow-sm"><img src="${p[0]}" class="w-full h-full object-cover"></div>
+                    <h2 class="font-serif text-base font-bold text-[#641f2a] uppercase tracking-wide mt-1">${p[1]}</h2>
+                    <p class="text-[#000000] text-xs sm:text-sm font-semibold leading-relaxed">${p[2]}</p>
+                </div>
+            `).join('');
+        }
+
+        /* ------------------------------- Boot ------------------------------- */
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            const drawer = document.getElementById('mobile-drawer');
+            menu.classList.remove('hidden');
+            setTimeout(() => drawer.classList.remove('-translate-x-full'), 10);
+        });
+        document.getElementById('mobile-menu-close')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            const drawer = document.getElementById('mobile-drawer');
+            drawer.classList.add('-translate-x-full');
+            setTimeout(() => menu.classList.add('hidden'), 300);
+        });
+
+        renderNewArrivals();
+        renderWatchShop();
+        updateCounters();
+    </script>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl relative text-left">
+            <button onclick="closeAdminLoginModal()" class="absolute top-6 right-6 text-[#641f2a] text-xl cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-lock text-2xl text-[#641f2a]"></i>
+                <h3 class="font-serif text-xl font-bold text-[#641f2a] mt-2 uppercase tracking-wider">Admin Login</h3>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Username</label>
+                    <input id="admin-user" type="text" required placeholder="Admin username" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-[#641f2a] mb-1">Password</label>
+                    <input id="admin-pass" type="password" required placeholder="••••••••" class="w-full bg-[#f9f6f0] border border-[#641f2a]/20 rounded-xl px-4 py-3 text-sm text-[#641f2a] focus:outline-none">
+                </div>
+                <button type="submit" style=" margin-right: -1167px;"class="w-full py-3.5 bg-[#641f2a] text-white rounded-full uppercase tracking-widest text-xs font-bold hover:bg-[#4a1720] transition-colors shadow-lg cursor-pointer mt-2"  >
+                    Login to Admin Panel
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
