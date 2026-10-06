@@ -552,11 +552,11 @@
     <script>
         const DEFAULT_PRODUCTS = [
             { id: 'p1', type: 'image', name: 'The Bow Crochet Top', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', tag: 'Handcrafted crochet &bull; Burgundy & Ivory', category: 'Tops', desc: 'Handcrafted crochet top with delicate burgundy bow details and airy stitch work.' },
-            { id: 'p2', type: 'image', name: 'The Mosaic Crochet Cardigan', price: 3999, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Handcrafted crochet &bull; Multicolour', category: 'Cardigans', desc: 'Luxurious multi-color mosaic cardigan crafted with premium chunky woolen yarn.' },
+            { id: 'p2', type: 'image', name: 'The Mosaic Crochet Cardigan', price: 3999, img: 'wishlist.png', tag: 'Handcrafted crochet &bull; Multicolour', category: 'Cardigans', desc: 'Luxurious multi-color mosaic cardigan crafted with premium chunky woolen yarn.' },
             { id: 'p3', type: 'image', name: 'The Sage Cloud Bag', price: 2499, img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Handcrafted crochet &bull; Sage green', category: 'Bags', desc: 'Textured sage green cloud clutch with custom metal branding and soft inner lining.' },
             { id: 'p4', type: 'image', name: 'The Olive Tank Top', price: 1999, img: 'assets/ChatGPT Image Sep 19, 2026, 12_17_31 PM.png', tag: 'Handcrafted crochet &bull; Cream & olive', category: 'Tops', desc: 'Vintage ribbed crochet tank top featuring elegant olive green striped borders.' },
             { id: 'p5', type: 'video', name: 'The Sunny Tulip Sweater', price: 4500, video: 'assets/v1.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_20_21 PM.png', category: 'Cardigans', desc: 'Handcrafted with textured bow patterns and a soft, oversized silhouette perfect for layering.' },
-            { id: 'p6', type: 'video', name: 'The Daisy Bloom Cardigan', price: 6200, video: 'assets/v2.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', category: 'Cardigans', desc: 'A granny-square artisanal cardigan, hand-pieced motif by motif for a one-of-a-kind finish.' },
+            { id: 'p6', type: 'video', name: 'The Daisy Bloom Cardigan', price: 6200, video: 'assets/v2.mp4', img: 'assets/wishlist.png', category: 'Cardigans', desc: 'A granny-square artisanal cardigan, hand-pieced motif by motif for a one-of-a-kind finish.' },
             { id: 'p7', type: 'video', name: 'The Olive Plica Bag', price: 3800, video: 'assets/v3.mp4', img: 'assets/ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', category: 'Bags', desc: 'A handmade crochet clutch masterpiece with a structured base and braided handle.' }
         ];
 
@@ -571,7 +571,7 @@
         let PRODUCTS = loadJSON('shrivi_products', DEFAULT_PRODUCTS);
 
         let cart = loadJSON('shrivi_cart', [
-            { id: 'p2', name: 'Mustard Bloom Crochet Cardigan', price: 3499, img: 'ChatGPT Image Sep 19, 2026, 12_10_53 PM.png', tag: 'Mustard yellow · Oversized fit', size: 'M', qty: 1 },
+            { id: 'p2', name: 'Mustard Bloom Crochet Cardigan', price: 3499, img: 'wishlist.png', tag: 'Mustard yellow · Oversized fit', size: 'M', qty: 1 },
             { id: 'p3', name: 'Olive Everyday Crochet Bag', price: 2499, img: 'ChatGPT Image Sep 19, 2026, 12_13_00 PM.png', tag: 'Olive green · One Size', size: 'One Size', qty: 1 }
         ]);
         let wishlist = loadJSON('shrivi_wishlist', ['p1', 'p2']);
@@ -1552,7 +1552,7 @@
                 id: 'GC' + Date.now().toString().slice(-4),
                 name: 'Shrivi Gift Card (For ' + name + ')',
                 price: val,
-                img: 'assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png',
+                img: 'assets/wishlist.png',
                 tag: 'Digital Gift Card · To: ' + email,
                 size: 'Digital',
                 qty: 1
@@ -1890,7 +1890,7 @@
                             </div>
                         </div>
                         <div class="w-full sm:w-36 h-40 rounded-2xl overflow-hidden bg-[#f4ede2] flex-shrink-0">
-                            <img src="assets/ChatGPT Image Sep 19, 2026, 12_10_53 PM.png" class="w-full h-full object-cover">
+                            <img src="assets/wishlist.png" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
